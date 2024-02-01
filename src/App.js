@@ -8,7 +8,7 @@ function App() {
 
       <div className="flex-col">
         <h2 className="font-bold">
-          Proposal:
+          Proposal: AAAA
         </h2>
         
         <div className="mx-12">
