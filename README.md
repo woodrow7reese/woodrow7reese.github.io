@@ -7,7 +7,7 @@
 
       <div className="flex-col">
         <h2 className="font-bold">
-          Proposal: AAAA
+          Proposal:
         </h2>
         
         <div className="mx-12">
