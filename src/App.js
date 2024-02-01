@@ -1,29 +1,32 @@
 function App() {
   return (
-    <div>
+    <div className="flex justify-center">
       <div>
-        <ol>
-          <li>
-            <p>
-            Set up your team consisting of three to five people. 
-            Find a name for your group. You can use the Project Groups Sign-up Sheet to find group members.
-            </p>
-          </li>
+        Woodrow Reese  
+      </div>
 
-          <li>
-           <p>
-            Find a problem to solve and write up a brief problem statement. Take the user's point of view
-           and specify the user's goals, actions, and any potential obstacles. You don't need a deeper analysis 
-           at this point, that's the goal of the second step of the project. 
-           </p>
-          </li>
+      <div>
+        <h2>
+          Proposal:
+        </h2>
+        
+        <p>
+           Alice is new to rock climbing and wants to document her progress.
+           For each climb, she documents the following:
+           The professional rated difficulty of the climb (V0-V10)
+           Her personal rating of the difficulty of the climb
+           Her strategy and thoughts about the climb
+           Whether she completed or failed the climb
 
-          <li>
-            <h2 className='text-red-300'>
-              Create your website and add the information from 1 and 2 on the website
-            </h2>
-          </li>
-        </ol>
+          She also records her climbs on her phone and her session time
+
+          Alice finds that her notes are confusing at times, and it is tedious to try
+          to match her notes to her recordings, which are stored in a separate application
+          (camera roll.) She wants a way to do all of these things on her phone, but
+          store the documented data in one place, and organized by each session.
+
+             
+        </p>
       </div>
     </div>
   );
