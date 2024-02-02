@@ -33,14 +33,12 @@
               </li>
             </ol>
           
-          Alice also records her climbs on her phone and her session time
+          Alice also records her climbs on her phone along with her session time
           <br/>
-          Alice finds that her notes are confusing at times, and it is tedious to try
-          to match her notes to her recordings, which are stored in her camera roll. 
-          The redundance of searching through her notes and matching it with a video is
+          The redundance of searching through her notes and matching it with the video in her camera roll is
           discouraging her from documenting her progress.
           She wants a way to do all of these things on her phone, and in one place. 
-          Each documentation should be ordered by session.
+          A mobile app that allows you to journal your progress with the listed features above could fix this. We can organize the data by session. An obstacle would be to make the application engaging to the user so they will continue using it. 
 
              
         </div>
