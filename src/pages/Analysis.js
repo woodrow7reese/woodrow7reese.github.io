@@ -15,7 +15,35 @@ const Analysis = () => {
                     </h3>
                     
                     <div className="ml-6">
-                        kckck
+                        <h4>
+                            There are 3 classes of users:
+                        </h4>
+
+                        <ol className="list-disc">
+                            <li>
+                                <div>
+                                    happy
+                                </div>
+                                <div>
+                                    Persona:
+
+                                </div>
+                            </li>
+
+                            <li>
+                                hungry
+                                <div>
+                                    Persona:
+                                </div>
+                            </li>
+
+                            <li>
+                                healthy
+                                <div>
+                                    Persona:
+                                </div>
+                            </li>   
+                        </ol>
                     </div>
                 </div>
 
@@ -24,7 +52,32 @@ const Analysis = () => {
                         2. Task Analysis
                     </h3>
 
-                    sddsdsds
+                    <ol className="list-decimal">
+                        <li>
+                            Document a session of climbs. <br/>
+                            Each climb can contain a date, description, recording of climb
+                            , rating of difficulty and enjoyment.
+                        </li>
+                        <li>
+                            Each property in a session will be editable
+                        </li>
+
+                        <li>
+                            Filter sessions by date
+                        </li>
+
+                        <li>
+                            Filter climbs of a session by difficulty
+                        </li>
+
+                        <li>
+                            Delete climbs and sessions
+                        </li>
+
+                        <li>
+                            View overall session analytics
+                        </li>
+                    </ol>
                 </div>
 
                 <div>
