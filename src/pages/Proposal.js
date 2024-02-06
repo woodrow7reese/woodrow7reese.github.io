@@ -1,13 +1,13 @@
 const Proposal = () => (
     <div className="m-12">
-        <div className="mb-12 font-semibold">
+        <div className="pt-12 mb-12 font-semibold">
             <h2>Woodrow Reese - Group 2</h2>
             <h2>CS615 - UI Design</h2>
         </div>
 
         <div className="flex-col">
-            <h2 className="font-bold">
-              Proposal:
+            <h2 className="font-bold text-2xl">
+              Step 1: Proposal
             </h2>
         
             <div className="mx-12">
