@@ -1,7 +1,7 @@
 const Proposal = () => (
     <div className="m-12">
-        <div className="pt-12 mb-12 font-semibold">
-            <h2>Woodrow Reese - Group 2</h2>
+        <div className="pt-12 mb-12 font-mono fnoont-semibold">
+            <h2>Group 2</h2>
             <h2>CS615 - UI Design</h2>
         </div>
 

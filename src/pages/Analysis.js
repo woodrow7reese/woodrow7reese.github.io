@@ -1,3 +1,6 @@
+import JanePersona from "./../photos/JaneDoe.png"
+import RobertPersona from "./../photos/RobertJ.jpg"
+import BobbyPersona from "./../photos/BobbyL.png"
 const Analysis = () => {
     return (
         <div 
@@ -17,44 +20,27 @@ const Analysis = () => {
                         1. User Analysis
                     </h3>
                     
-                    <div className="ml-6">
-                        <h4 className="font-medium text-xl mb-2">
+                    <h4 className=" ml-6 font-medium text-xl mb-2">
                             There are 3 classes of users:
                         </h4>
+                    <div className="mx-12">
 
-                        <ol className="ml-6 list-disc">
-                            <li>
-                                <div className="text-xl mb-2">
-                                    Happy
-                                </div>
-                                <div className="ml-6 mb-6">
-                                    Persona:
+                        <div className="bg-[#EEEEEE] text-black">
+                        </div>
+                        <div className="ml-6 list-disc">
+                            <img
+                             src={JanePersona} alt="" 
+                            />
 
-                                </div>
-                            </li>
-
-                            <li>
-                                <div
-                                    className="text-xl mb-2"
-                                >
-                                    Hungry
-                                </div>
-                                <div className="ml-6 mb-6">
-                                    Persona:
-                                </div>
-                            </li>
-
-                            <li>
-                                <div
-                                    className="text-xl mb-2"
-                                >
-                                    Healthy
-                                </div>
-                                <div className="ml-6 mb-6">
-                                    Persona:
-                                </div>
-                            </li>   
-                        </ol>
+                            <img
+                             src={RobertPersona} alt=""
+                            />
+                            <img
+                             src={BobbyPersona} alt=""
+                             />
+                        
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -71,28 +57,43 @@ const Analysis = () => {
 
                     <ol className="ml-8 list-disc">
                         <li> 
-                            Document a session of climbs (Date, Description, Recording of climb,
-                            Rating of difficulty and enjoyment)                            
-                        </li>
-
-                        <li>
-                            Each property in a session will be editable
-                        </li>
-
-                        <li>
-                            Filter sessions by date
-                        </li>
-
-                        <li>
-                            Filter climbs of a session by difficulty
-                        </li>
-
-                        <li>
-                            Delete climbs and sessions
+                            <p>
+                                Document a climb session
+                                    <br/>
+                                - Create a new session
+                                    <br/>
+                                - Add a climb
+                                    <br/>
+                                &#9; &#8227; Add a rating, difficulty, description, video of your climb ...
+                                    <br/>
+                                &#9; &#8227; Save climb
+                                    <br/>
+                                &#8225; Add another climb
+                                    <br/>
+                                - Save Session
+                            </p>
                         </li>
 
                         <li>
                             View overall session analytics
+                            <br/>
+                            - 
+                            -
+                            -
+                        </li>
+
+                        <li>
+                            View a climb session
+                            <br/>
+                            - Go to climb history
+                            <br/>
+                            - Find climb session
+                            <br/>
+                            &#8227; Scroll to session in chronological order
+                            <br/>
+                            &#8226; Filter session by a category, then scroll to it 
+                            <br/>
+                            - View climb session
                         </li>
                     </ol>
                 </div>
