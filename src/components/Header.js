@@ -1,17 +1,19 @@
-import { GiFallingRocks } from "react-icons/gi";
+import { GiFallingRocks } from "react-icons/gi"
 const Header = () => {
     return (
-        <div className="flex justify-between fixed top-0 -mx-24 w-full bg-[#181c22] py-2
+        <div className="flex justify-between fixed top-0 -mx-24 w-full bg-[#181c22] py-4
             text-xl font-mono">
             <GiFallingRocks
-                size={30} className="ml-12" color="00ADB5" 
+                color="00ADB5"
+                className="ml-24" 
+                size={40}
             />
 
-            <div className="ml-12 tracking-wide mt-1 text-[#EEEEEE]">
+            <div className="mt-1.5 tracking-wide text-[#EEEEEE]">
                 Boulder Flash
             </div>
 
-            <div className="mr-12">
+            <div className="mt-1.5 mr-12">
                 Woodrow Reese
             </div>
         </div>
