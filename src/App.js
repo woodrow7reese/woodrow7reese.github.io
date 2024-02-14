@@ -8,7 +8,7 @@ import Analysis from "./pages/Analysis";
 function App() {
   return (
     <div 
-      className="flex-col px-24 text-[#EEEEEE] text-lg leading-loose bg-[#222831]
+      className="flex-col px-24 text-[#EEEEEE] lg:text-xl leading-loose bg-[#222831]
        h-full bottom-0 pb-96"
       >
       <Header />

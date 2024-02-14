@@ -1,12 +1,12 @@
 const Proposal = () => (
     <div className="m-12">
-        <div className="pt-12 mb-12 font-mono fnoont-semibold">
+        <div className="pt-12 mb-12 font-mono font-semibold">
             <h2>Group 2</h2>
             <h2>CS615 - UI Design</h2>
         </div>
 
         <div className="flex-col">
-            <h2 className="font-bold text-3xl mb-12">
+            <h2 className="font-bold text-5xl mb-12">
               Step 1: Proposal
             </h2>
         
