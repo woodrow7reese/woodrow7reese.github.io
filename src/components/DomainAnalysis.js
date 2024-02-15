@@ -13,7 +13,7 @@ const DomainAnalysis = () => (
             alt=""
         />
 
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
             <table className="table-auto mt-12 w-[40%] h-[450px]">
                 <thead className="bg-slate-900">
                     <tr className="border-2 border-[#EEEEEE]">
@@ -68,7 +68,7 @@ const DomainAnalysis = () => (
                 </tbody>
             </table>
 
-        </div>
+        </div> */}
 
     </div>
 )
