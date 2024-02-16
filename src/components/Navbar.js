@@ -2,9 +2,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdHistory } from "react-icons/md";
 import { FaChartBar } from "react-icons/fa";
-
 const Navbar = () => {
-
     return (
         <div>
             {/* <div className="flex lg:flex-col justify-between lg:justify-normal px-12 py-4 fixed bottom-0 lg:left-0 lg:bottom-auto w-full lg:w-auto lg:h-full bg-[#181c22]">
@@ -35,7 +33,8 @@ const Navbar = () => {
                 <FaRegUserCircle
                     color="00adb5"
                     className="mb-16 bottom-0 fixed"
-                    size={40} />
+                    size={40}
+                />
             </div>
         </div>
     )
