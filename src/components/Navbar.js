@@ -2,6 +2,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdHistory } from "react-icons/md";
 import { FaChartBar } from "react-icons/fa";
+
 const Navbar = () => {
     return (
         <div>

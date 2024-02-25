@@ -1,7 +1,3 @@
-// import UserAnalysis from "../components/UserAnalysis"
-// import TaskAnalysis from "../components/TaskAnalysis"
-// import DomainAnalysis from "../components/DomainAnalysis"
-
 const Analysis = () => {
     return (
         <div 
@@ -24,21 +20,22 @@ const Analysis = () => {
                 allowfullscreen>
             </iframe>
 
-            {/* <div className="ml-12 mt-1.5">
-                <UserAnalysis />
-                <div
-                    className="border-t bg-[#EEEEEE] opacity-60 my-12 -ml-6 mr-6"
-                ></div>
+            <div
+                className="border-t-4 bg-[#EEEEEE] mt-24 mb-16"
+            ></div>
 
-                <TaskAnalysis />
-                <div
-                    className="border-t bg-[#EEEEEE] opacity-60 my-12 -ml-6 mr-6"
-                ></div>
+            <h2
+                className="font-bold text-2xl md:text-5xl mb-24">
+                Step 3: Storyboards 
+            </h2> 
+            <iframe 
+             className="mt-24 border-8 border-[rgba(0, 0, 0, 0.1)] w-full h-lvh
+             hover:border-slate-400 hover:transition-colors duration-200
+             rounded-2xl" 
+             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fvp2KcAAxHkfuTT3KQt6wSz%2FStoryboards%3Ftype%3Dwhiteboard%26node-id%3D0%253A1%26t%3DYkcnYt5yAbgXvvlc-1"
+             allowfullscreen>
 
-                <DomainAnalysis />
-
-            </div> */}
-
+             </iframe>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import Proposal from "./pages/Proposal"
 import Navbar from "./components/Navbar";
-// import NewDoc from "./pages/NewDoc";
 import Header from "./components/Header";
 import Analysis from "./pages/Analysis";
+import Storyboard from "./components/Storyboard";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Header />
         <Proposal />
         <Analysis />
+        
       </div>
       
       {/* <NewDoc /> */}
