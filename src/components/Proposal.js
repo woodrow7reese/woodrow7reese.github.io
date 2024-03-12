@@ -1,7 +1,7 @@
 const Proposal = () => (
-    <div className="m-12">
+    <div className="mx-12 mb-12 bg-inherit">
       <div className="flex-col">
-          <h2 className="font-bold text-5xl mb-12">
+          <h2 className="font-bold text-5xl my-12">
             Step 1: Proposal
           </h2>
       
