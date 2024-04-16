@@ -5,26 +5,29 @@ import { FaChartBar } from "react-icons/fa";
 
 const Navbar = () => {
     return (
-        <div 
-          className="flex-col start-0 top-0 fixed h-full px-4 pt-24 bg-[#181C22]">
-            
-            <FiPlusCircle 
-                className="opacity-80 mt-12"
-                size={40} />
-            <MdHistory 
-                className="opacity-80 mt-12 -mx-1.5"
-                size={50} />
-            
-            <FaChartBar 
-                className="opacity-80 mt-12"
-                size={38}    
-            />
-            <FaRegUserCircle
-                color="00adb5"
-                className="mb-16 bottom-0 fixed"
-                size={40}
-            />
-        </div>
+       <nav className="z-50 flex justify-between start-0 bottom-0 fixed px-6 py-2 w-full bg-[#181C22]">
+                <FiPlusCircle 
+                    // className="opacity-80 mt-12"
+                    className="opacity-80"
+                    size={20} />
+                <MdHistory 
+                    // className="opacity-80 mt-12 -mx-1.5"
+                    className="opacity-80 ml-12"
+                    size={23} />
+
+                <FaChartBar 
+                    // className="opacity-80 mt-12"
+                    className="opacity-80 ml-12"
+                    size={20}    
+                />
+                <FaRegUserCircle
+                    // className="mb-16 bottom-0 fixed"
+                    className="opacity-80 ml-12"
+                    color="00adb5"
+                    size={20}
+                />
+                
+            </nav>
     )
 }
 

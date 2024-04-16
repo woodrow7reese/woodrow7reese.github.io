@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom'
 import Climbing from './../photos/climbing.svg'
 const Home = () => {
     return (
-        <div className='pb-[65px] pt-1 mt-16 mx-12 scroll-mb-0'>
-            <div className='flex justify-between mt-24 font-mono font-extrabold'>
-              <div className='mt-12'>
+        <div className='pb-[65px] scroll-mb-0 mt-12'>
+            <div className='flex-col font-mono font-extrabold'>
+              <div>
                 <h2 className='text-[#00adb5] text-md tracking-widest'>Rock Climbing App</h2>
                 <div className='text-5xl tracking-tight mb-4'>
                   <h1 className='mb-4'>Track Progress,</h1>
@@ -15,17 +16,19 @@ const Home = () => {
                   <br/> adipiscing elit. Sed sagittis justo nec <br/> 
                   tortor mollis, a sodales nibh mattis. 
                 </p>
-                <button 
-                  className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
-                  text-[#00adb5] hover:bg-white hover:text-[#222831'>
-                  Live Demo
-                </button>
+                  
+                  <img 
+                   src={Climbing} alt=''
+                   className='w-[70%] mx-[15%] my-6' 
+                  />
+                <Link to='/app/demo'>
+                  <button 
+                    className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
+                    text-[#00adb5] hover:bg-white hover:text-[#222831'>
+                    Live Demo
+                  </button>
+                </Link>
               </div>
-              
-              <img 
-               src={Climbing} alt=''
-               className='w-[40%] mt-6' 
-              />
             </div>
         
             <div className="bottom-0 w-full bg-inherit"></div> 
