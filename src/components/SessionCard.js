@@ -23,7 +23,7 @@ const Demo = () => {
     const session = new Session(1, date.toString().substring(0, 15), "4:26PM", "7:12PM", arr)
     var bob = new User(1,"bob123", "bob@gmail.com", session)
     
-    const x = "Hello"
+    // const x = "Hello"
     return (
         <div className='flex-col w-full mt-8 p-1 rounded-xl bg-[#2a313c]'>
             <SessionStats user={bob} />

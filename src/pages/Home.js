@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Climbing from './../photos/climbing.svg'
 const Home = () => {
     return (
@@ -12,29 +12,53 @@ const Home = () => {
                   <h1>Share With Friends</h1>
                 </div>
                 <p className='text-md font-semibold text-gray-400 text-start mb-6'>
-                  Lorem ipsum dolor sit amet, consectetur
-                  <br/> adipiscing elit. Sed sagittis justo nec <br/> 
-                  tortor mollis, a sodales nibh mattis. 
+                  Lorem ipsum dolor sit amet, consectetur.
+                  <br/>
+                  Adipiscing elit. Sed sagittis 
+                  <br/>
+                  nec.
+                  <br/> 
+                  Tortor mollis, a sodales nibh
+                  <br/>
+                  mattis. 
                 </p>
                   
-                  <img 
-                   src={Climbing} alt=''
-                   className='w-[70%] mx-[15%] my-6' 
-                  />
-                {/* <Link to='/app/demo'>
-                  <button 
-                    className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
-                    text-[#00adb5] hover:bg-white hover:text-[#222831'>
-                    Live Demo
-                  </button>
-                </Link> */}
-                <a
-                    href="https://www.figma.com/file/kFgh81W7f6Jyq8B7tjaEvu/Untitled?type=design&node-id=0%3A1&mode=design&t=bMrncHwh420eLhNe-1"
-                    className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
-                    text-[#00adb5] hover:bg-white hover:text-[#222831'>
-                    Live Demo
-                  </a>
+                <img 
+                  src={Climbing} alt=''
+                  className='w-[70%] mx-[15%] my-6' 
+                />
               </div>
+              
+              <div className='mb-2'>
+                <a
+                  href="https://www.figma.com/file/kFgh81W7f6Jyq8B7tjaEvu/Untitled?type=design&node-id=0%3A1&mode=design&t=bMrncHwh420eLhNe-1"
+                  className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
+                  text-[#00adb5] hover:bg-white hover:text-[#222831'>
+                  Figma Prototype
+                </a>
+                
+              </div>  
+              
+              <div className='flex'>
+                <Link
+                  to="/login"
+                  className='px-4 py-1 my border-2 mr-2 rounded-xl border-[#00adb5]
+                  bg-[#00adb5] text-[#222831] hover:bg-white hover:text-[#222831'
+                >
+                    
+                 Login
+                    
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className='px-4 py-1 my-0 border-2 rounded-xl border-[#DA9D25]
+                  bg-[#DA9D25] text-[#222831] hover:bg-white hover:text-[#222831'
+                  >
+                  Sign Up
+                </Link>
+                
+              </div>  
             </div>
         
             <div className="bottom-0 w-full bg-inherit"></div> 

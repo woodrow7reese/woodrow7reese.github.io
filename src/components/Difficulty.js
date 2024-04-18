@@ -1,7 +1,7 @@
 import Impossible from "../photos/difficulty/Impossible"
 import Challenging from "../photos/difficulty/Challenging"
 import Easy from "../photos/difficulty/Easy"
-import { Component } from "react"
+// import { Component } from "react"
 const Difficulty = ({difficulty}) => {
     const arr = [
         {

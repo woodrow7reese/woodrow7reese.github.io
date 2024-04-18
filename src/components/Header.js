@@ -48,13 +48,15 @@ const Header = () => {
     return (
 
         <div className="flex justify-between bg-inherit bg-black pt-6">
-            <Link to='/'>
+            <Link to='/' className="flex">
                 <GiFallingRocks
                     color='#00ADB5'
-                    className="mr-6"
+                    className="mr-2"
                     size={35}
-                    />
+                />
             </Link>
+
+            
             
             {renderMenu()}
             

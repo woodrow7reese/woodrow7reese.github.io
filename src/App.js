@@ -3,7 +3,10 @@ import Header from "./components/Header"
 import Roadmap from "./pages/Roadmap"
 import Home from "./pages/Home"
 import Demo from './components/SessionCard'
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"
+// import Signup from "./pages/Signup"
+
+import Main from './pages/app/Main'
 
 
 /*
@@ -22,8 +25,10 @@ function App() {
           <Header />
           <Routes>
             <Route index path='/' element={<Home/>} />
+            {/* <Route path='/signup' element={<Signup/>} /> */}
             <Route path='/roadmap' element={<Roadmap/>} />
             <Route path='/app/demo' element={<Demo />} />
+            <Route path='/app/main' element={<Main />} />
             {/* <Route path='/app' element={} /> */}
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
