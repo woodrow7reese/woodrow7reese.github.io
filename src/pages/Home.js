@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Climbing from './../photos/climbing.svg'
 const Home = () => {
     return (
@@ -21,13 +21,19 @@ const Home = () => {
                    src={Climbing} alt=''
                    className='w-[70%] mx-[15%] my-6' 
                   />
-                <Link to='/app/demo'>
+                {/* <Link to='/app/demo'>
                   <button 
                     className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
                     text-[#00adb5] hover:bg-white hover:text-[#222831'>
                     Live Demo
                   </button>
-                </Link>
+                </Link> */}
+                <a
+                    href="https://www.figma.com/file/kFgh81W7f6Jyq8B7tjaEvu/Untitled?type=design&node-id=0%3A1&mode=design&t=bMrncHwh420eLhNe-1"
+                    className='px-4 py-1.5 border-2 rounded-xl border-[#00adb5]
+                    text-[#00adb5] hover:bg-white hover:text-[#222831'>
+                    Live Demo
+                  </a>
               </div>
             </div>
         

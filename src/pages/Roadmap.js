@@ -1,5 +1,6 @@
 import Proposal from "../components/Proposal"
 import Analysis from "../components/Analysis"
+import Prototype from "../components/Prototype"
 import LowFidelityAndPrototype from "../components/LowFidelityAndPrototype"
 const Roadmap = () => {
     return (
@@ -10,6 +11,7 @@ const Roadmap = () => {
             <Proposal />
             <Analysis />
             <LowFidelityAndPrototype />
+            <Prototype />
         </div>
     )
 }

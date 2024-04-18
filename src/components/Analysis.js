@@ -29,6 +29,7 @@ const Analysis = () => {
                 Step 3: Storyboards 
             </h2> 
             <iframe 
+             title="Storyboards"
              className="mt-24 border-8 border-[rgba(0, 0, 0, 0.1)] w-full h-lvh
              hover:border-slate-400 hover:transition-colors duration-200
              rounded-2xl" 

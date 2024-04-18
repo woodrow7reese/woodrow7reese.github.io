@@ -11,7 +11,7 @@ class Session {
     // startTime() { return this.startTime }
     // endTime() { return this.endTime }
     climbs() { return this.climbs }
-
+    
     numCompleted() {
         let j = 0
         for (let i = 0; i < this.climbs.length; i++) {

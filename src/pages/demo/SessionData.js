@@ -1,31 +1,15 @@
-import { FaCheck, FaRegPlayCircle, FaRegStar } from 'react-icons/fa'
-import { MdDoNotDisturb } from 'react-icons/md';
-import hold1 from './../../photos/hold1.svg'
-import hold2 from './../../photos/hold2.svg'
-import hold3 from './../../photos/hold3.svg'
-import hold4 from './../../photos/hold4.svg'
-import hold5 from './../../photos/hold5.svg'
-import hold6 from './../../photos/hold6.svg'
-import hold7 from './../../photos/hold7.svg'
-import hold8 from './../../photos/hold8.svg'
-
+import { FaCheck, FaRegStar } from 'react-icons/fa'
+import { MdDoNotDisturb } from 'react-icons/md'
+import GetRandomHold from './../../components/GetRandomHold'
 const SessionData = (session) => {
-    const holds = [hold1, hold2, hold3, hold4, hold5, hold6, hold7, hold8]
-    const randHold = () => {
-        const x = Math.floor(Math.random() * 8)
-        return (
-            <img src={holds[x]}/> 
-        ) 
-        
-    }
-
+    const x = "sddsdsd"
     return (
         <div>
             <div className='my-6 font-bold text-xl'>Session Info</div>
             { session.session.climbs.map((climb, id) => (
                 <div className='flex' key={id}>
                     <div className='mt-2 mr-6'>
-                        {randHold}
+                        <GetRandomHold str={x} />
                     </div>
                     
                     <div className='flex-col'>
