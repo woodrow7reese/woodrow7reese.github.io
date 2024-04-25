@@ -3,24 +3,37 @@ import crown from './../photos/sessionStats/crown.svg'
 import clock from './../photos/sessionStats/clock.svg'
 import pie from './../photos/sessionStats/pie.svg'
 import climb from './../photos/sessionStats/climb.svg'
+import up from './../photos/thumbs/thumbs-up.svg'
+import down from './../photos/thumbs/thumbs-down.svg'
 
-const SessionStats = ({user}) => {
-    const toPercent = () => {
-        return user.sessions.numCompleted() / (user.sessions.numCompleted() + user.sessions.numFailed()) * 100 
+
+const SessionStats = (
+    { session_time, avg_difficulty, max_difficulty, total_climbs, num_completed, num_failed, completion_rate, date}
+) => {
+    
+    const sessionTime = () => {
+        const h = session_time / 60
+        const m = session_time % 60
+        
+        return `${h}hr${m}min`
     }
 
-    const totalClimbs = () => {
-        return user.sessions.numCompleted() + user.sessions.numFailed()
+    const handleDate = () => {
+        const yyyy = date.substring(0,4)
+        const dd = date.substring(8,10)
+        const mm = date.substring(5,7) 
+        return `${mm}/${dd}/${yyyy}`
     }
 
     return (
-        <div>
+        <div className='rounded-xl bg-[#2a313c] -mb-4 pt-4'>
             <div 
-                className='ml-4 mt-8 mb-6 font-bold underline'>
-                {/* <Date's>: Session */}
-                Today's Session
+                className='ml-4 font-bold text-[#c6c6c6] bg-[#1b1f25]
+                            w-min inline px-2 py-1 rounded-lg border-[#c6c6c6]'>
+                { handleDate() }
             </div>
-            <div className='flex justify-between mx-[5%] text-sm font-bold'>
+
+            <div className='flex justify-between mx-[5%] text-sm font-bold mt-2'>
                 <div 
                     className='flex-col justify-between text-[#C5C5C5]'>
                     <div className='mb-4'>
@@ -31,7 +44,7 @@ const SessionStats = ({user}) => {
                                 alt=''
                             />
                             <div className='mt-2 ml-1 text-3xl text-white'>
-                                V5
+                                V{ max_difficulty }
                             </div>
                         </div>
                         <h3 className='ml-5 mt-1'>Best Climb</h3>
@@ -46,11 +59,29 @@ const SessionStats = ({user}) => {
                                 />
                                 <div
                                     className='mt-2 ml-1 text-3xl text-white'>
-                                        V4
+                                        V{ avg_difficulty }
                                 </div>
                         </div>
                         <h3 className='ml-5 mt-1'>Avg. Climb</h3>
                     </div>
+
+                    <div className='mb-4'>
+                        <div className='flex'>
+                            <img 
+                                src={up}
+                                className='h-[50px]'
+                                alt=''
+                            />
+                            <div
+                                className='mt-2 ml-1 text-3xl text-white'>
+                                    { num_completed }
+                            </div>
+                        </div>
+                        <h3 className='ml-5 mt-1'>Num. Completed</h3>
+                    </div>
+
+
+
                     <div className='mb-4'>
                         <div className='flex'>
                                 <img 
@@ -60,7 +91,7 @@ const SessionStats = ({user}) => {
                                     />
                                     <div
                                         className='mt-2 ml-1 text-3xl text-white'>
-                                            1h
+                                            { sessionTime() }
                                     </div>
                         </div>
                         <h3 className='ml-5 mt-1 text-nowrap'>Session Time</h3>
@@ -77,7 +108,7 @@ const SessionStats = ({user}) => {
                                 />
                             <div
                                 className='mt-2 ml-1 text-3xl text-white'>
-                                    {totalClimbs(user)}
+                                    { total_climbs }
                             </div>        
                         </div>
                             <h3 className='ml-5 mt-1 text-nowrap'>Total Climbs</h3>
@@ -91,11 +122,26 @@ const SessionStats = ({user}) => {
                                 />
                                 <div
                                     className='mt-2 ml-1 text-3xl text-white'>
-                                        {toPercent(user)}%
+                                        { completion_rate }%
                                 </div>
-                            </div>
-                            <h3 className='ml-5 mt-1 text-nowrap'>Rate of Completion</h3>
                         </div>
+                            <h3 className='ml-5 mt-1 text-nowrap'>Rate of Completion</h3>
+                    </div>
+
+                    <div className='mb-4'>
+                        <div className='flex'>
+                            <img 
+                                src={down}
+                                className='h-[50px]'
+                                alt=''
+                            />
+                            <div
+                                className='mt-2 ml-1 text-3xl text-white'>
+                                    { num_failed }
+                            </div>
+                        </div>
+                        <h3 className='ml-5 mt-1'>Num. Failed</h3>
+                    </div>
                 </div>
             </div>
         

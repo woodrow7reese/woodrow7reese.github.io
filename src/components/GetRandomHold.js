@@ -6,19 +6,26 @@ import hold5 from './../photos/holds/hold5.svg'
 import hold6 from './../photos/holds/hold6.svg'
 import hold7 from './../photos/holds/hold7.svg'
 import hold8 from './../photos/holds/hold8.svg'
+import React from 'react'
 
-const GetRandomHold = ({str}) => {
-    const holds = [hold1, hold2, hold3, hold4, hold5, hold6, hold7, hold8]
+const GetRandomHold = ({ str, category }) => {
+    // Check if str is defined before calling any methods on it
+    const holds = [hold1, hold2, hold3, hold4, hold5, hold6, hold7, hold8];
+    // Generate a random index to pick a hold from the array
+    const randomIndex = Math.floor(Math.random() * holds.length);
     
     return (
-        <div className='flex mb-4'>
+        <div className='flex mb-4 justify-center align-middle'>
             <img 
-               src={ holds[Math.floor(Math.random() * 8)] }
+               src={holds[randomIndex]}
                className='h-[60px]'
                alt=''
-               />         
-        
-            <h1 className='ml-4 mt-3 text-3xl font-semibold'>{str}</h1>
+            />         
+            {/* Render the first 5 characters of str */}
+            <div className='mt-3 ml-3 flex-col align-middle inline'>
+                <h1 className='text-3xl font-semibold'>{str}</h1>
+                <h2 className='text-center font-medium text-sm text-[#c6c6c6]'>{category}</h2>
+            </div>
         </div>
     )
 }

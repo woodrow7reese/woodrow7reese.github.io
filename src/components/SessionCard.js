@@ -1,66 +1,42 @@
 import React from 'react'
-import Climb from '../pages/demo/Climb.mjs'
-import Session from '../pages/demo/Session.mjs'
-import User from '../pages/demo/User.mjs'
 import GetRandomHold from './GetRandomHold'
 import ThumbsUpDown from './ThumbsUpDown'
 import Difficulty from './Difficulty'
-import SessionStats from './SessionStats'
-import gt from './../photos/gtlt/gt.svg'
-import lt from './../photos/gtlt/lt.svg'
 
-const Demo = () => {
+const SessionCard = ({ key, title, gymRating, style, completed, difficulty, description, video }) => {
     
-    var climb1 = new Climb(false, "This climb was difficult. I did a bat hang.", "V5")
-    var climb2 = new Climb(true, "There were a ton of crimps. My hands started cramping and I was fatigued halfway through.", "V3")
-    var climb3 = new Climb(false, "It started with lorem ipsum dolor it el amplitude.", "V6")
-    var climb4 = new Climb(true, "This climb was easy. I did it in my sleep", "VB")
-    var climb5 = new Climb(true, "Consisted of all jugs and stable footholds. I was able to take my time.", "V2")
-    var arr = [climb1, climb2, climb3, climb4, climb5]
-
-    // mapping over session, not user
-    const date = new Date()
-    const session = new Session(1, date.toString().substring(0, 15), "4:26PM", "7:12PM", arr)
-    var bob = new User(1,"bob123", "bob@gmail.com", session)
-    
-    // const x = "Hello"
     return (
-        <div className='flex-col w-full mt-8 p-1 rounded-xl bg-[#2a313c]'>
-            <SessionStats user={bob} />
-
-            <div className='flex justify-end mr-[5%] mt-6'>
-                <div>
-                    # of # climbs
-                </div>
-                <img src={lt} className='h-[25px] ml-3 mr-1' alt='' />
-                <img src={gt} className='h-[25px]' alt='' />
-            </div>
-
-            <div className='flex-col w-full mt-2 pt-10 pb-8 px-4 rounded-xl bg-[#1b1f25]'>
+        <div className='flex-col w-full px-1 pb-1 pt-12 mb-6 rounded-xl bg-[#2a313c]'>
+            <div key={key} className='flex-col w-full mt-2 pt-10 pb-8 px-4 rounded-xl bg-[#1b1f25]'>
                 {/* Title */}
-                <GetRandomHold str="Apex" />
+                <GetRandomHold str={title} category={'Climb Name'} />
                 {/* Gym rating */}
-                <GetRandomHold str="V4" />
+                <GetRandomHold str={`V${gymRating}`} category={'Gym Rating'} />
                 {/* Style */}
-                <GetRandomHold str="Jugs & Crux"/>
-
-                {/* Was the Climb Marked as Complete? */}
-                {/* Does not work */}
-                <ThumbsUpDown isComplete={true} />
-                
-                {/* User rating of climb, easy/challenging/impossible */}
-                <Difficulty difficulty={1} />
-
-                
+                <GetRandomHold str={style} category={'Climbing Style'} />
+                {/* Completed */}
+                <ThumbsUpDown isComplete={completed} category={'Completed?'} />
+                {/* Difficulty */}
+                <Difficulty difficulty={difficulty} />
                 {/* Video component */}
                 <div className='bg-black rounded-lg mt-24 h-[600px] text-center'>
                     Video
                 </div>
 
-                
+                <div className='text-center tracking-tighter bg-[#2a313c] border-2 border-[#c6c6c6] rounded-lg
+                                text-[#c6c6c6] py-6 mt-6'
+                >
+                    <h2 className='font-semibold underline'>
+                        Description
+                    </h2>
+                    
+                    <p>
+                        {description}
+                    </p>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Demo
+export default SessionCard

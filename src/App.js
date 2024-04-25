@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header"
 import Roadmap from "./pages/Roadmap"
-import Home from "./pages/Home"
+import HomePage from "./pages/HomePage"
 import Demo from './components/SessionCard'
 import Navbar from "./components/Navbar"
+import UserHome from './pages/app/UserHome'
+import Login from './pages/Login'
 // import Signup from "./pages/Signup"
 
-import Main from './pages/app/Main'
 
 
 /*
@@ -24,12 +25,14 @@ function App() {
         <div className="flex-col px-8 pb-20 text-[#EEEEEE] lg:text-xl leading-loose bg-[#222831] h-full w-full bottom-0 scroll-pt-0">
           <Header />
           <Routes>
-            <Route index path='/' element={<Home/>} />
+            <Route index path='/' element={<HomePage/>} />
             {/* <Route path='/signup' element={<Signup/>} /> */}
             <Route path='/roadmap' element={<Roadmap/>} />
             <Route path='/app/demo' element={<Demo />} />
-            <Route path='/app/main' element={<Main />} />
+            {/* <Route path='/app/main' element={<Main />} /> */}
             {/* <Route path='/app' element={} /> */}
+            <Route path='/login' element={<Login />} />
+            <Route path='/app/userHome' element={<UserHome />} />
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
           <Navbar />

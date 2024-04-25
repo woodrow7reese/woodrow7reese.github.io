@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Climbing from './../photos/climbing.svg'
-const Home = () => {
+const HomePage = () => {
     return (
         <div className='pb-[65px] scroll-mb-0 mt-12'>
             <div className='flex-col font-mono font-extrabold'>
@@ -66,4 +66,4 @@ const Home = () => {
     )
 }
 
-export default Home 
+export default HomePage 

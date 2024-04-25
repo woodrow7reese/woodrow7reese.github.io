@@ -1,12 +1,12 @@
 import { FaCheck, FaRegStar } from 'react-icons/fa'
 import { MdDoNotDisturb } from 'react-icons/md'
 import GetRandomHold from './../../components/GetRandomHold'
-const SessionData = (session) => {
+const SessionData = ({session}) => {
     const x = "sddsdsd"
     return (
         <div>
             <div className='my-6 font-bold text-xl'>Session Info</div>
-            { session.session.climbs.map((climb, id) => (
+            { session.climbs.map((climb, id) => (
                 <div className='flex' key={id}>
                     <div className='mt-2 mr-6'>
                         <GetRandomHold str={x} />
