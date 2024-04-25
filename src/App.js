@@ -6,6 +6,7 @@ import Demo from './components/SessionCard'
 import Navbar from "./components/Navbar"
 import UserHome from './pages/app/UserHome'
 import Login from './pages/Login'
+import History from "./pages/app/History";
 // import Signup from "./pages/Signup"
 
 
@@ -33,6 +34,7 @@ function App() {
             {/* <Route path='/app' element={} /> */}
             <Route path='/login' element={<Login />} />
             <Route path='/app/userHome' element={<UserHome />} />
+            <Route path='/app/history' element={<History />}/>
             <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
           <Navbar />

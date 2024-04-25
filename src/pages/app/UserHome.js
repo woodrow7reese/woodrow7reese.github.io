@@ -5,7 +5,7 @@ import SessionCard from "../../components/SessionCard"
 
 const UserHome = () => {
     var [sessions, setSessions] = useState([])
-    const id = '6621a2f1ccbab60464004721'
+    const id = '66218395053c6a12f1868516'
     const fetchUser = () => {
         fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
             method: "GET"
