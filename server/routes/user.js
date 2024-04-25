@@ -4,34 +4,6 @@ const router = express.Router()
 const User  = require('./../model/model')
 const { response } = require('express')
 
-// Edit user's name
-// Add a Session
-// router.post('/newSession', async (req, res) => {
-//     try {
-
-//     } catch (e) {
-
-//     }
-// })
-// Delete a Session 
-// router.delete('/deleteSession', async (req, res) => {
-//     try {
-
-//     } catch (e) {
-        
-//     }
-// })
-// Add a climb to a session -> put  edit climb
-// Delete a climb in a session -> delete
-// router.delete('/', (req, res) => {
-    
-//})
-
-
-
-
-// Get all sessions given a user
-
 // Add new user
 router.post('/newuser', async (req, res) => {
     try {

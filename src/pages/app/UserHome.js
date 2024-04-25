@@ -38,6 +38,7 @@ const UserHome = () => {
                         num_failed={session.stats.num_failed}
                         completion_rate={session.stats.completion_rate}
                         date={session.date}
+                        title={session.title}
                     />
                     {session.climbs.map((climb) => (
                         <SessionCard 
