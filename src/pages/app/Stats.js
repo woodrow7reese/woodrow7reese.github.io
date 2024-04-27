@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react"
+import PieChart from "../../components/PieChart"
+import BarGraph from "../../components/BarGraph"
+import SessionHistogram from "../../components/SessionHistogram"
 
 const Stats = () => {
     var [sessions, setSessions] = useState([])
@@ -205,38 +208,77 @@ const Stats = () => {
 
     const { totalCompletedClimbs, totalFailedClimbs } = calculateTotalCompletedAndFailedClimbs()
     
+    const ProgressBar = () => {
+        const completionRate = calculateOverallCompletionRate();
+        const failedRate = 100 - completionRate;
+        const xWidth = `${completionRate}%`;
+        const yWidth = `${100 - completionRate}%`;
+    
+        return (
+            <div className="font-semibold">
+                <div className="flex h-[35px] w-full">
+                    <div 
+                        className='bg-[#4cAf50]' 
+                        style={
+                            { width: xWidth, borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px' }
+                        }>
+                            <h2 className="flex justify-center">{completionRate >= 25 ? completionRate : ''}%</h2>
+                        </div>
+                    <div 
+                        className='bg-red-600' 
+                        style={
+                            { width: yWidth, borderTopRightRadius: '10px', borderBottomRightRadius: '10px' }
+                        }>
+                            <h2 className="flex justify-center">{failedRate >= 25 ? failedRate : ''}%</h2>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        );
+    };
+    
     
 
     return (
-        <div className="mt-12">
-            <h1>Overall Completion Rate: {calculateOverallCompletionRate()}%</h1>
-            <h1>Total Completed Climbs: {totalCompletedClimbs}</h1>
-            <h1>Total Failed Climbs: {totalFailedClimbs}</h1>
-            <h1>Avg Climb Rating: V{calculateAvgClimbRating()} </h1>
-            <div>
-                <h2>Climbs by Rating:</h2>
-                <ul>
-                    {Object.entries(climbsByRating).map(([rating, count]) => (
-                        <li key={rating}>V{rating}: {count} Climbs</li>
-                    ))}
-                </ul>
+        <div className="mt-12 font-mono bg-[#2a313c] rounded-xl p-4">
+            <h1 className="text-2xl tracking-wider font-semibold border-2 border-[#c6c6c6] text-[#c6c6c6] 
+            rounded-lg w-min px-3 py-1 bg-[#2a313c]">
+                Stats
+            </h1>
+
+            <div className="mt-8 bg-[#222831] rounded-lg pt-2 pb-10 px-2 text-center mb-8">
+                <h2 className="text-xl mt-4 font-semibold text-[#c6c6c6]">Completed Vs Failed Climbs</h2>
+                <div className="flex mb-2 mt-6">
+                        <h3 className="mr-2 rounded-xl bg-[#2a313c] px-3 py-1">Completed: {totalCompletedClimbs}</h3>
+                        <h3 className="rounded-xl bg-[#2a313c] px-3 py-1">Failed: {totalFailedClimbs}</h3>
+                </div>
+                <ProgressBar /> 
             </div>
 
-            <div>
-                <h2>Completion Rate by Rating:</h2>
-                <ul>
-                    {Object.entries(completionByRating).map(([rating, rate]) => (
-                        <li key={rating}>V{rating}: {rate.toFixed(0)}%</li>
-                    ))}
-                </ul>
+            <div className="mb-8 bg-[#222831] rounded-lg p-2 text-center">
+                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Avg Climb Rating: V{calculateAvgClimbRating()}</h2>
             </div>
 
-            <h1>Average Session Time: {avg_time}</h1>
-            <h2>Average Climbs Per Session: {climbsPerSession}</h2>
+            <div className="mb-8 bg-[#222831] rounded-lg pt-2 pb-6 px-2 text-center">
+                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Climbs Attempted Per Difficulty</h2>
+                <PieChart climbsByRating={climbsByRating} />
+            </div>
 
+            <div className="mb-8 bg-[#222831] rounded-lg pt-2 pb-6 px-2 text-center">
+                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Completion Rate Per Difficulty</h2>
+                <BarGraph data={completionByRating}/>
+            </div>
 
-            {/* <Pie data={data} /> */}
+            <div className="mb-8 bg-[#222831] rounded-lg pt-2 pb-6 px-2 text-center">
+                <h1 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Session Time: {avg_time}</h1>
+                <SessionHistogram sessionTimes={sessions.map(session => session.stats.session_time)} averageSessionTime={avg_time} />   
+            </div>
             
+            <div className="mb-8 bg-[#222831] rounded-lg p-2 text-center">
+                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Climbs Per Session: {climbsPerSession}</h2>
+            </div>
         </div>
     );
 }
