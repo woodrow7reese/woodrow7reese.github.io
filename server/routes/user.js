@@ -109,10 +109,11 @@ router.get('user/:userId/session/:sessionDate/climbs', async (req, res) => {
 })
 
 // Route to add a session to a user
-router.post('/users/:userId/sessions', async (req, res) => {
+router.post('/user/:userId/newSession', async (req, res) => {
+    const userId = req.params.userId
+    const sessionData = req.body
+
     try {
-        const userId = req.params.userId
-        const sessionData = req.body
 
         const user = await User.findById(userId)
         if (!user) {

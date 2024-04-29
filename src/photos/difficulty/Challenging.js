@@ -1,8 +1,8 @@
 
-const Challenging = () => (
+const Challenging = ({setWidth}) => (
   <svg
-    width={60}
-    height={60}
+    width={setWidth}
+    // height={60}
     viewBox="0 0 60 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

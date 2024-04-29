@@ -239,8 +239,6 @@ const Stats = () => {
         );
     };
     
-    
-
     return (
         <div className="mt-12 font-mono bg-[#2a313c] rounded-xl p-4">
             <h1 className="text-2xl tracking-wider font-semibold border-2 border-[#c6c6c6] text-[#c6c6c6] 

@@ -2,18 +2,18 @@ import Impossible from "../photos/difficulty/Impossible"
 import Challenging from "../photos/difficulty/Challenging"
 import Easy from "../photos/difficulty/Easy"
 
-const Difficulty = ({difficulty}) => {
+const Difficulty = ({difficulty, hideText, setWidth, textDirection}) => {
     const arr = [
         {
-            icon: <Easy />,
+            icon: <Easy setWidth={setWidth ? setWidth : 60} />,
             string: "Easy"
         },
         {
-            icon: <Challenging />,
+            icon: <Challenging setWidth={setWidth ? setWidth : 60} />,
             string: "Challenging"
         },
         {
-            icon: <Impossible />,
+            icon: <Impossible setWidth={setWidth ? setWidth : 60} />,
             string: "Impossible"
         }, 
     ]
@@ -21,12 +21,12 @@ const Difficulty = ({difficulty}) => {
     const handleDifficulty = () => {
         if (difficulty <= 4) {
             return (
-                <div className="flex mb-8">
+                <div className={`${(textDirection === '' || textDirection === undefined) ? 'flex' : textDirection} mb-8`}>
                     { arr[0].icon }
 
-                    <div className="text-3xl font-semibold mt-2 ml-3">
+                    { !hideText ? <div className={`text-3xl font-semibold mt-2 ${textDirection ? '': 'ml-3'}`}>
                         { arr[0].string }
-                    </div>
+                    </div> : ''}
                 </div>
             )
         }
@@ -36,9 +36,9 @@ const Difficulty = ({difficulty}) => {
                 <div className="flex mb-8">
                     { arr[1].icon }
 
-                    <div className="text-3xl font-semibold mt-2 ml-3">
+                    { !hideText ? <div className="text-3xl font-semibold mt-2 ml-3">
                         { arr[1].string }
-                    </div>
+                    </div> : ''}
                 </div>
             )
         }
@@ -48,9 +48,9 @@ const Difficulty = ({difficulty}) => {
                 <div className="flex mb-8">
                     { arr[2].icon }
 
-                    <div className="text-3xl font-semibold mt-2 ml-3">
+                    { !hideText ? <div className="text-3xl font-semibold mt-2 ml-3">
                         { arr[2].string }
-                    </div>
+                    </div> : ''}
                 </div>
             )
         }

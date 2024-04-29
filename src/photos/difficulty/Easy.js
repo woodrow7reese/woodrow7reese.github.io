@@ -1,8 +1,8 @@
 
-const Easy = () => (
+const Easy = ({setWidth}) => (
+
   <svg
-    width={60}
-    height={60}
+    width={setWidth}
     viewBox="0 0 60 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
