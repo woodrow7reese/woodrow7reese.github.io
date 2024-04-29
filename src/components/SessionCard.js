@@ -2,9 +2,9 @@ import React from 'react'
 import GetRandomHold from './GetRandomHold'
 import ThumbsUpDown from './ThumbsUpDown'
 import Difficulty from './Difficulty'
+import Video from './Video'
 
 const SessionCard = ({ key, title, gymRating, style, completed, difficulty, description, video }) => {
-    
     return (
         <div className='flex-col w-full px-1 pb-1 pt-12 mb-6 rounded-xl bg-[#2a313c]'>
             <div key={key} className='flex-col w-full mt-2 pt-10 pb-8 px-4 rounded-xl bg-[#1b1f25]'>
@@ -19,9 +19,10 @@ const SessionCard = ({ key, title, gymRating, style, completed, difficulty, desc
                 {/* Difficulty */}
                 <Difficulty difficulty={difficulty} />
                 {/* Video component */}
-                <div className='bg-black rounded-lg mt-24 h-[600px] text-center'>
+                <Video url={video} title={title} />
+                {/* <div className='bg-black rounded-lg mt-24 h-[600px] text-center'>
                     Video
-                </div>
+                </div> */}
 
                 <div className='text-center tracking-tighter bg-[#2a313c] border-2 border-[#c6c6c6] rounded-lg
                                 text-[#c6c6c6] py-6 mt-6'
