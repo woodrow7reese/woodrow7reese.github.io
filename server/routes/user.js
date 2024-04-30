@@ -112,23 +112,54 @@ router.get('user/:userId/session/:sessionDate/climbs', async (req, res) => {
 router.post('/user/:userId/newSession', async (req, res) => {
     const userId = req.params.userId
     const sessionData = req.body
+    
+    console.log(req.body)
 
     try {
-
+        console.log('in try block --- to add session')
         const user = await User.findById(userId)
         if (!user) {
             return res.status(404).json({ message: 'User not found' })
         }
+        console.log('user found')
 
         user.sessions.push(sessionData)
-
         await user.save()
-
+        
+        console.log('session added')
         res.status(201).json({ message: 'Session added successfully', user })
     } catch (error) {
         res.status(400).json({ message: 'Failed to add session', error: error.message })
     }
 })
+
+// Delete a session from a user
+router.delete('/user/:userId/session/:sessionId', async (req, res) => {
+    const userId = req.params.userId;
+    const sessionId = req.params.sessionId;
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Find the index of the session to delete
+        const sessionIndex = user.sessions.findIndex(session => session.id === sessionId);
+        if (sessionIndex === -1) {
+            return res.status(404).json({ message: 'Session not found' });
+        }
+
+        // Remove the session from the user's sessions array
+        user.sessions.splice(sessionIndex, 1);
+        await user.save();
+
+        res.status(200).json({ message: 'Session deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to delete session', error: error.message });
+    }
+});
+
 
 // Add new climb to session 
 router.post('/users/:userId/sessions/:sessionId/climbs', async (req, res) => {

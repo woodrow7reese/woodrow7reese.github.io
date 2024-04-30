@@ -8,12 +8,14 @@ import down from './../photos/thumbs/thumbs-down.svg'
 
 
 const SessionStats = (
-    { title, session_time, avg_difficulty, max_difficulty, total_climbs, num_completed, num_failed, completion_rate, date}
+    { title, session_time, avg_difficulty, max_difficulty, total_climbs, num_completed, num_failed, completion_rate, date,
+      }
 ) => {
+
     
     const sessionTime = () => {
-        const h = session_time / 60
-        const m = session_time % 60
+        const h = (session_time / 60).toFixed(0)
+        const m = (session_time % 60).toFixed(0)
         
         return `${h}hr${m}min`
     }
@@ -25,8 +27,9 @@ const SessionStats = (
         return `${mm}/${dd}/${yyyy}`
     }
 
+
     return (
-        <div className='rounded-xl bg-[#2a313c] -mb-4 pt-4'>
+        <div className='rounded-xl bg-[#2a313c] -mb-4 pt-4 pb-8'>
             <div className='flex justify-between'>
                 <div 
                     className='ml-4 font-bold text-[#c6c6c6] bg-[#1b1f25]
@@ -150,7 +153,11 @@ const SessionStats = (
                     </div>
                 </div>
             </div>
-        
+            {/* <button 
+                onClick={handleDeleteSession} 
+                className='absolute right-0 font-semibold font-sans -translate-x-10 bg-red-500 mt-4 px-3 py-1 rounded-lg'>
+                Delete Session
+            </button> */}
         </div>
     )
 }

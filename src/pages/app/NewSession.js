@@ -4,7 +4,10 @@ import down from './../../photos/thumbs/thumbs-down.svg'
 import VideoUploader from "../../components/VideoUploader";
 import DifficultySelector from "../../components/DifficultySelector";
 import GymRatingSelector from "../../components/GymRatingSelector";
-
+import LinkUploader from "../../components/LinkUploader";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/ReactToastify.css'
 const NewSession = () => {
     const [sessionData, setSessionData] = useState({
         title: "",
@@ -13,7 +16,13 @@ const NewSession = () => {
         endTime: "00:00",
         climbs: [],
         stats: {
-            time: 0
+            session_time: 0,
+            avg_difficulty: 0,
+            max_difficulty: 0,
+            total_climbs: 0,
+            num_completed: 0,
+            num_failed: 0,
+            completion_rate: 0
         }
     });
 
@@ -35,14 +44,23 @@ const NewSession = () => {
         }));
     };
     
-    const handleVideoUpload = (index, video) => {
+    // const handleVideoUpload = (index, video) => {
+    //     const updatedClimbs = [...sessionData.climbs];
+    //     updatedClimbs[index].video = video;
+    //     setSessionData(prevData => ({
+    //         ...prevData,
+    //         climbs: updatedClimbs
+    //     }));
+    // };
+
+    const handleUrlUpload = (index, url) => {
         const updatedClimbs = [...sessionData.climbs];
-        updatedClimbs[index].video = video;
+        updatedClimbs[index].video = url
         setSessionData(prevData => ({
             ...prevData,
             climbs: updatedClimbs
-        }));
-    };
+        }))
+    }
     
     
     
@@ -66,7 +84,7 @@ const NewSession = () => {
 
     const handleGymRatingChange = (index, change) => {
         const climbs = [...sessionData.climbs];
-        climbs[index].gym_rating = Math.min(Math.max(Number(climbs[index].gym_rating) + change, 0), 10).toString();
+        climbs[index].gym_rating = change
         setSessionData((prevData) => ({
             ...prevData,
             climbs
@@ -82,23 +100,14 @@ const NewSession = () => {
         }));
     };
 
-    const handleDifficultyChange = (difficulty) => {
-        console.log(difficulty)
+    const handleDifficultyChange = (index, difficulty) => {
+        const climbs = [...sessionData.climbs]
+        climbs[index].difficulty = difficulty
         setSessionData((prevData) => ({
             ...prevData,
-            difficulty: difficulty
+            climbs
         }));
     };
-
-    const dTime = () => {
-        const start = new Date(`01/01/2001 ${sessionData.startTime}`)
-        const end = new Date(`01/01/2001 ${sessionData.endTime}`)
-
-        const t = end - start
-        const mins = Math.floor(t / 60000)
-
-        return mins
-    }
 
     const deleteClimb = (index) => {
         setSessionData((prevData) => ({
@@ -106,21 +115,70 @@ const NewSession = () => {
             climbs: prevData.climbs.filter((_, i) => i !== index)
         }))
     }
-    
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const calculateTime = dTime()
-        const data = {
-            title: sessionData.title,
-            date: sessionData.date,
-            stats: {
-                time: calculateTime
-            },
-            climbs: sessionData.climbs
+    const calculateSessionTime = (start, end) => {
+        const startDate = new Date(`2000-01-01T${start}`);
+        const endDate = new Date(`2000-01-01T${end}`);
+        const minutes = Math.floor((endDate - startDate) / 60000);
+        return minutes
+    } 
+
+    const avg_difficulty = (ratings) => {
+        const avg = ratings.reduce((sum, rating) => sum + rating)
+        return avg / ratings.length
+    }
+
+    const max_difficulty = (ratings) => {
+        var max = -1
+        for (let i in ratings) {
+            if (i > max) {
+                max = i
+            }
         }
 
+        return max
+    }
+
+    const num_failed = (bools) => {
+        const checkFalse = (bool) => {
+            if (bool) return 1
+            return 0 
+        } 
+        const n = bools.reduce((total, bool) => 
+            total + checkFalse(bool)
+        )
+
+        return n
+    }
+
+
+    
+    const navigate = useNavigate()
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
         const id = '66218395053c6a12f1868516'
+
+        const sessionDuration = calculateSessionTime(sessionData.startTime, sessionData.endTime)
+        const avgDifficulty = avg_difficulty(sessionData.climbs.map((climb) => climb.gym_rating))
+        const maxDifficulty = max_difficulty(sessionData.climbs.map((climb) => climb.gym_rating))
+        const totalClimbs = sessionData.climbs.length
+        const numFailed = num_failed(sessionData.climbs.map(climb => climb.completed))
+        const numCompleted = totalClimbs - numFailed
+        const completionRate = Math.floor(numCompleted * 100 / totalClimbs).toPrecision(3)
+        
+        const data = {
+            ...sessionData,
+            stats: {
+                session_time: sessionDuration,
+                avg_difficulty: avgDifficulty,
+                max_difficulty: maxDifficulty,
+                total_climbs: totalClimbs,
+                num_completed: numCompleted,
+                num_failed: numFailed,
+                completion_rate: completionRate
+            }
+        }
         try {
             const response = await fetch(`http://localhost:5050/api/user/${id}/newSession`, {
                 method: 'POST',
@@ -128,22 +186,25 @@ const NewSession = () => {
                     'Content-Type': 'application/json'
                 },
 
-                body: JSON.stringify(sessionData)
-            })
+                // body: JSON.stringify(sessionData)
+                body: JSON.stringify(data)
+            }) 
 
-            if (!response.ok) {
-                throw new Error("Couldn't add session")
-            }
+            // if (!response.ok) {
+            //     throw new Error("Couldn't add session")
+            // }
 
             setSessionData({
                 title: '',
                 date: '',
                 climbs: []
             })
+
             
             console.log("Session added successfully");
         } catch (error) {
             console.log("ohmylanta- couldn't submit new session", error)
+            
         }
         // Make a POST request to the backend endpoint with sessionData
         // Reset sessionData after submission
@@ -152,12 +213,18 @@ const NewSession = () => {
             date: "",
             climbs: []
         });
+
+        toast.success('Session Saved Successfully!')
+        navigate('/app/userHome')
     };
 
+
     return (
+        <div className="bg-inherit pb-12">
+            <ToastContainer draggable={true} />
         <div className="mt-12 font-mono bg-[#2a313c] rounded-lg pt-4 px-4">
             <h1 className="text-2xl tracking-wider font-semibold border-2 border-[#c6c6c6] text-[#c6c6c6] 
-            rounded-lg w-min px-3 py-1 bg-[#2a313c] inline">
+            rounded-lg w-min px-3 py-1 bg-inherit inline">
                 New Session
             </h1>
             <form onSubmit={handleSubmit} className="flex-col [&>*]:mb-4 mt-4">
@@ -228,7 +295,7 @@ const NewSession = () => {
                                 className="bg-inherit w-full border-opacity-20 border-b-2 border-[#c6c6c6]"
                                 type="text"
                                 name="title"
-                                maxLength={25}
+                                maxLength={16}
                                 placeholder="..."
                                 value={climb.title}
                                 onChange={(e) => handleClimbInputChange(index, e)}
@@ -275,9 +342,9 @@ const NewSession = () => {
                         </div>
 
                         
-                        <DifficultySelector onChange={(difficulty) => handleDifficultyChange(difficulty)}/>
-                       
-                        <VideoUploader index={index} onVideoUpload={handleVideoUpload} />
+                        <DifficultySelector onChange={(difficulty) => handleDifficultyChange(index, difficulty)}/>
+                        {/* <VideoUploader index={index} onVideoUpload={handleVideoUpload} /> */}
+                        <LinkUploader index={index} onUrlUpload={handleUrlUpload} />
                     </div>
                 ))}
 
@@ -298,6 +365,7 @@ const NewSession = () => {
                     </button>
                 </div>
             </form>
+        </div> 
         </div>
     );
 };

@@ -6,7 +6,7 @@ import { IoFilterOutline } from "react-icons/io5"
 const History = () => {
     var [sessions, setSessions] = useState([])
     const id = '66218395053c6a12f1868516'
-    const fetchSessions = () => {
+    const fetchSessions = async () => {
         fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
             method: "GET"
         }).then(
@@ -29,6 +29,7 @@ const History = () => {
     const handleToggle = () => {
         setToggle(!toggle)
     }
+
     const renderMenu = () => {
         if (toggle) {
             return (
@@ -111,6 +112,7 @@ const History = () => {
                         completion_rate={session.stats.completion_rate}
                         date={session.date}
                     />
+                    {console.log(session._id)}
                     
                     {session.climbs.map((climb) => (
                         <SessionCard
@@ -121,7 +123,7 @@ const History = () => {
                             completed={climb.completed}
                             difficulty={climb.difficulty}
                             description={climb.description}
-                            video={'https://www.youtube.com/embed/y06-KYeDE0o'}
+                            video={climb.video}
                         />
                     ))}
                 </div>

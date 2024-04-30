@@ -14,7 +14,7 @@ const HomePage = () => {
                 <p className='text-md font-semibold text-gray-400 text-start mb-6'>
                   Lorem ipsum dolor sit amet, consectetur.
                   <br/>
-                  Adipiscing elit. Sed sagittis 
+                  Optimized for mobile displays 
                   <br/>
                   nec.
                   <br/> 
