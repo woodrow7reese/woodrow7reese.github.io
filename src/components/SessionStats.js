@@ -120,7 +120,7 @@ const SessionStats = (
                                     { total_climbs }
                             </div>        
                         </div>
-                            <h3 className='ml-5 mt-1 text-nowrap'>Total Climbs</h3>
+                            <h3 className='ml-5 mt-1 text-nowrap text-[#c6c6c6]'>Total Climbs</h3>
                     </div>
                     <div className='mb-4'>
                         <div className='flex'>
@@ -134,7 +134,7 @@ const SessionStats = (
                                         { completion_rate }%
                                 </div>
                         </div>
-                            <h3 className='ml-5 mt-1 text-nowrap'>Rate of Completion</h3>
+                            <h3 className='ml-5 mt-1 text-nowrap text-[#c6c6c6]'>Rate of Completion</h3>
                     </div>
 
                     <div className='mb-4'>
@@ -149,7 +149,7 @@ const SessionStats = (
                                     { num_failed }
                             </div>
                         </div>
-                        <h3 className='ml-5 mt-1'>Num. Failed</h3>
+                        <h3 className='ml-5 mt-1 text-[#c6c6c6]'>Num. Failed</h3>
                     </div>
                 </div>
             </div>

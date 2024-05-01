@@ -59,7 +59,7 @@ const Difficulty = ({difficulty, hideText, setWidth, textDirection}) => {
 
 
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center text-[#c6c6c6]">
              {handleDifficulty()}
         </div>
     )

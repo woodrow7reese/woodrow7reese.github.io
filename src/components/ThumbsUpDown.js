@@ -11,7 +11,7 @@ const ThumbsUpDown = ({isComplete}) => {
             />
             
             <h1 
-                className='ml-2 mt-6 text-center text-3xl font-semibold'
+                className='ml-2 mt-6 text-center text-3xl font-semibold text-[#c6c6c6]'
             >
                 {isComplete === true ? 'Completed' : 'Failed'}
             </h1>

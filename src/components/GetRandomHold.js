@@ -23,7 +23,7 @@ const GetRandomHold = ({ str, category }) => {
             />         
             {/* Render the first 5 characters of str */}
             <div className='mt-3 ml-3 flex-col align-middle inline'>
-                <h1 className='text-3xl font-semibold'>{str}</h1>
+                <h1 className='text-3xl font-semibold text-white'>{str}</h1>
                 <h2 className='text-center font-medium text-sm text-[#c6c6c6]'>{category}</h2>
             </div>
         </div>

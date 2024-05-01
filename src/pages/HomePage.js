@@ -12,15 +12,12 @@ const HomePage = () => {
                   <h1>Share With Friends</h1>
                 </div>
                 <p className='text-md font-semibold text-gray-400 text-start mb-6'>
-                  Lorem ipsum dolor sit amet, consectetur.
+                  - Go to website.com/app/userHome to access the app!
                   <br/>
-                  Optimized for mobile displays 
+                  - Optimized for mobile displays!
                   <br/>
-                  nec.
-                  <br/> 
-                  Tortor mollis, a sodales nibh
+                  - Mock data is pre-loaded
                   <br/>
-                  mattis. 
                 </p>
                   
                 <img 
