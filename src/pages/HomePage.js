@@ -12,8 +12,7 @@ const HomePage = () => {
                   <h1>Share With Friends</h1>
                 </div>
                 <p className='text-md font-semibold text-gray-400 text-start mb-6'>
-                  - Go to website.com/app/userHome to access the app!
-                  <br/>
+                  <Link to='/app/userhome' className='flex'>- Click <h2 className='mx-1 text-[#00adb5]'>here</h2> to access the app!</Link>
                   - Optimized for mobile displays!
                   <br/>
                   - Mock data is pre-loaded

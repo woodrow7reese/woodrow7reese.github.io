@@ -1,8 +1,11 @@
 import { FiPlusCircle } from "react-icons/fi";
 import { MdHistory } from "react-icons/md";
 import { FaChartBar, FaHome } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Navbar = () => { 
+    const location = useLocation()
+    const isRootPath = location.pathname === '/'
+    if (isRootPath) return null
     return (
        <nav className="z-50 flex justify-between start-[6%] bottom-[2%] fixed ml-2 px-4 py-3 w-[85%] bg-[#000000] rounded-xl">
                 
@@ -30,10 +33,7 @@ const Navbar = () => {
                         className="ml-12"
                         size={20}    
                     />
-                </Link>
-
-                
-                
+                </Link>  
             </nav>
     )
 }

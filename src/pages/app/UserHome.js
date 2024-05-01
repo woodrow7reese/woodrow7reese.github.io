@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import { FaThumbsDown, FaThumbsUp, FaTrophy } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaChartBar, FaThumbsDown, FaThumbsUp, FaTrophy } from "react-icons/fa";
+import { IoFilterOutline } from "react-icons/io5"
+import { FiPlusCircle } from "react-icons/fi";
+import { MdHistory } from "react-icons/md";
 import climb from './../../photos/sessionStats/climb.svg';
 import SessionStats from './../../components/SessionStats';
 import SessionCard from './../../components/SessionCard';
-import { IoFilterOutline } from "react-icons/io5"
+
 
 const UserHome = () => {
     const [sessions, setSessions] = useState([]);
@@ -148,8 +152,35 @@ const UserHome = () => {
                 </div>
             </div>
         
+            <div className="font-sans text-nowrap font-semibold text-[#c6c6c6] my-12 flex-col text-center border-2 py-6 px-4 mx-2 rounded-lg mb-4 bg-[#2a313c]">
+                    <h2 className="text-xl">Actions</h2>
+
+                    <div className="ml-[20%]">
+                        <div className="mt-4 mb-2 underline">
+                            <Link to='app/userhome' className="flex">
+                                <FiPlusCircle size={25} className="mr-2 translate-y-1" />
+                                Create New Session
+                            </Link>
+                        </div>
+                        
+                        <div className="flex mb-2 underline -translate-x-1">
+                            <Link to='app/history' className="flex">
+                                <MdHistory size={30} className="mr-2"/>
+                                View All Sessions
+                            </Link>
+                        </div>
+
+                        <div className="flex underline">
+                            <Link to='app/stats' className="flex">
+                                <FaChartBar size={25} className="mr-2 translate-y-1"/>
+                                View Stats
+                            </Link>
+                        </div>
+                    </div>
+            </div>
+
             <div className="mt-8 grid grid-cols-2 relative">
-                {sessions.map((session) => (
+                {filteredSessions().map((session) => (
                     <div className="text-center font-sans flex-col border-2 py-6 px-4 mx-2 rounded-lg mb-4 bg-[#2a313c]" key={session._id}>
                         <div className="font-semibold mb-1">
                             {session.title}
