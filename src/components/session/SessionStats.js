@@ -1,10 +1,10 @@
-import mu from './../photos/sessionStats/mu.svg'
-import crown from './../photos/sessionStats/crown.svg'
-import clock from './../photos/sessionStats/clock.svg'
-import pie from './../photos/sessionStats/pie.svg'
-import climb from './../photos/sessionStats/climb.svg'
-import up from './../photos/thumbs/thumbs-up.svg'
-import down from './../photos/thumbs/thumbs-down.svg'
+import mu from './../../photos/sessionStats/mu.svg'
+import crown from './../../photos/sessionStats/crown.svg'
+import clock from './../../photos/sessionStats/clock.svg'
+import pie from './../../photos/sessionStats/pie.svg'
+import climb from './../../photos/sessionStats/climb.svg'
+import up from './../../photos/thumbs/thumbs-up.svg'
+import down from './../../photos/thumbs/thumbs-down.svg'
 
 
 const SessionStats = (
@@ -14,10 +14,15 @@ const SessionStats = (
 
     
     const sessionTime = () => {
-        const h = (session_time / 60).toFixed(0)
         const m = (session_time % 60).toFixed(0)
+        if (session_time >= 0 && session_time <= 60) {
+            return `${m}min`
+        } else {
+            const h = (session_time / 60).toFixed(0)
+            return `${h}hr${m}min`
+        }
+
         
-        return `${h}hr${m}min`
     }
 
     const handleDate = () => {

@@ -4,6 +4,7 @@ import { FaChartBar, FaHome } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 const Navbar = () => { 
     const location = useLocation()
+    const path = location.pathname 
     const isRootPath = location.pathname === '/'
     if (isRootPath) return null
     return (
@@ -11,7 +12,7 @@ const Navbar = () => {
                 
                 <Link to='/app/userHome'>
                     <FaHome
-                        color="00adb5"
+                        color={path === '/app/userHome' ? '#00adb5' : '#c6c6c6'}
                         size={20}
                         />
                 </Link>
@@ -19,18 +20,21 @@ const Navbar = () => {
                 <Link to='/app/newSession'>
                     <FiPlusCircle
                         className="ml-12" 
+                        color={path === '/app/newsession' ? '#00adb5' : '#c6c6c6'}
                         size={20} />
                 </Link>
 
                 <Link to='/app/history'>
                     <MdHistory 
                         className="ml-12"
+                        color={path === '/app/history' ? '#00adb5' : '#c6c6c6'}
                         size={23} />
                 </Link>
 
                 <Link to='/app/stats'>
                     <FaChartBar 
                         className="ml-12"
+                        color={path === '/app/stats' ? '#00adb5' : '#c6c6c6'}
                         size={20}    
                     />
                 </Link>  

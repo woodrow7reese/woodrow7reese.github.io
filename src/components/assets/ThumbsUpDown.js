@@ -1,5 +1,5 @@
-import up from './../photos/thumbs/thumbs-up.svg'
-import down from './../photos/thumbs/thumbs-down.svg'
+import up from './../../photos/thumbs/thumbs-up.svg'
+import down from './../../photos/thumbs/thumbs-down.svg'
 
 const ThumbsUpDown = ({isComplete}) => {
     return (

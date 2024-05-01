@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header"
 import Roadmap from "./pages/Roadmap"
 import HomePage from "./pages/HomePage"
-import Demo from './components/SessionCard'
+import Demo from './components/session/SessionCard'
 import Navbar from "./components/Navbar"
 import UserHome from './pages/app/UserHome'
 import Login from './pages/Login'

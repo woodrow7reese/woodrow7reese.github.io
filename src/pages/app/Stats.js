@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import PieChart from "../../components/PieChart"
-import BarGraph from "../../components/BarGraph"
-import SessionHistogram from "../../components/SessionHistogram"
+import PieChart from "../../components/stats/PieChart"
+import BarGraph from "../../components/stats/BarGraph"
+import SessionHistogram from "../../components/stats/SessionHistogram"
 
 const Stats = () => {
     var [sessions, setSessions] = useState([])

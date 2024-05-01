@@ -1,9 +1,9 @@
 import { useState } from "react";
 import up from './../../photos/thumbs/thumbs-up.svg'
 import down from './../../photos/thumbs/thumbs-down.svg'
-import DifficultySelector from "../../components/DifficultySelector"
-import GymRatingSelector from "../../components/GymRatingSelector"
-import LinkUploader from "../../components/LinkUploader"
+import DifficultySelector from "../../components/assets/DifficultySelector"
+import GymRatingSelector from "../../components/assets/GymRatingSelector"
+import LinkUploader from "../../components/assets/LinkUploader"
 import { useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/ReactToastify.css'

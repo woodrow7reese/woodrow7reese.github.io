@@ -1,6 +1,6 @@
-import Impossible from "../photos/difficulty/Impossible"
-import Challenging from "../photos/difficulty/Challenging"
-import Easy from "../photos/difficulty/Easy"
+import Impossible from "../../photos/difficulty/Impossible"
+import Challenging from "../../photos/difficulty/Challenging"
+import Easy from "../../photos/difficulty/Easy"
 
 const Difficulty = ({difficulty, hideText, setWidth, textDirection}) => {
     const arr = [

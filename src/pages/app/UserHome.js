@@ -5,8 +5,8 @@ import { IoFilterOutline } from "react-icons/io5"
 import { FiPlusCircle } from "react-icons/fi";
 import { MdHistory } from "react-icons/md";
 import climb from './../../photos/sessionStats/climb.svg';
-import SessionStats from './../../components/SessionStats';
-import SessionCard from './../../components/SessionCard';
+import SessionStats from '../../components/session/SessionStats';
+import SessionCard from '../../components/session/SessionCard';
 
 
 const UserHome = () => {
@@ -30,6 +30,17 @@ const UserHome = () => {
         };
         fetchUser();
     }, []);
+
+    const handleDeleteSession = (sessionId) => {
+        fetch(`http://localhost:5050/api/user/${id}/session/${sessionId}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            setSessions(sessions.filter(session => session._id !== sessionId))
+        }) 
+        .catch(e => console.error('couldnt delete session', e))
+    }
+
     
     const handleDate = (date) => {
         const yyyy = date.substring(0,4);
@@ -225,11 +236,17 @@ const UserHome = () => {
                         </div>
 
                         <div className="w-min">
-                
-                            <button onClick={() => openPopup(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
-                                hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
-                                >View Session
-                            </button>
+                            <div className="">
+                                <button onClick={() => openPopup(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
+                                    hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
+                                    >View
+                                </button>
+
+                                <button onClick={() => handleDeleteSession(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
+                                    hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
+                                    >Delete
+                                </button>
+                            </div>
 
                             {selectedSessionId === session._id && (
                                 <>
@@ -242,7 +259,7 @@ const UserHome = () => {
                                                 Close
                                         </button>
 
-                                        <div key={session._id} className="overflow-y-scroll h-[400px]" >
+                                        <div key={session._id} className="overflow-y-scroll h-[650px]" >
                                             <SessionStats 
                                                 title={session.title}
                                                 session_time={session.stats.session_time}

@@ -1,7 +1,7 @@
-import Proposal from "../components/Proposal"
-import Analysis from "../components/Analysis"
-import Prototype from "../components/Prototype"
-import LowFidelityAndPrototype from "../components/LowFidelityAndPrototype"
+import Proposal from "../components/analysis/Proposal"
+import Analysis from "../components/analysis/Analysis"
+import Prototype from "../components/analysis/Prototype"
+import LowFidelityAndPrototype from "../components/analysis/LowFidelityAndPrototype"
 const Roadmap = () => {
     return (
         <div 
