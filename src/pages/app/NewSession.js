@@ -1,12 +1,11 @@
 import { useState } from "react";
 import up from './../../photos/thumbs/thumbs-up.svg'
 import down from './../../photos/thumbs/thumbs-down.svg'
-import VideoUploader from "../../components/VideoUploader";
-import DifficultySelector from "../../components/DifficultySelector";
-import GymRatingSelector from "../../components/GymRatingSelector";
-import LinkUploader from "../../components/LinkUploader";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import DifficultySelector from "../../components/DifficultySelector"
+import GymRatingSelector from "../../components/GymRatingSelector"
+import LinkUploader from "../../components/LinkUploader"
+import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/ReactToastify.css'
 const NewSession = () => {
     const [sessionData, setSessionData] = useState({
@@ -180,7 +179,7 @@ const NewSession = () => {
             }
         }
         try {
-            const response = await fetch(`http://localhost:5050/api/user/${id}/newSession`, {
+            await fetch(`http://localhost:5050/api/user/${id}/newSession`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

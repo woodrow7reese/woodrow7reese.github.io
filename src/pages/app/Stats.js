@@ -47,21 +47,21 @@ const Stats = () => {
         return parseInt(averageCompletionRate.toPrecision(2));
     };
     
-    const completed = calculateOverallCompletionRate()
-    const failed = 100 - completed
-    const data = {
-        labels: ['Completed', 'Failed'],
-        datasets: [
-            {   
-                label: 'Completed vs Failed Climbs',
-                data: [completed, failed],
-                backgroundColor: [
-                    '#36A2EB',
-                    '#FF6384',
-                ],
-            }
-        ]
-    };
+    // const completed = calculateOverallCompletionRate()
+    // const failed = 100 - completed
+    // const data = {
+    //     labels: ['Completed', 'Failed'],
+    //     datasets: [
+    //         {   
+    //             label: 'Completed vs Failed Climbs',
+    //             data: [completed, failed],
+    //             backgroundColor: [
+    //                 '#36A2EB',
+    //                 '#FF6384',
+    //             ],
+    //         }
+    //     ]
+    // };
 
     const calculateAvgClimbRating = () => {
         if (sessions.length === 0) {
