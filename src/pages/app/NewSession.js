@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import up from './../../photos/thumbs/thumbs-up.svg'
 import down from './../../photos/thumbs/thumbs-down.svg'
 import DifficultySelector from "../../components/assets/DifficultySelector"
