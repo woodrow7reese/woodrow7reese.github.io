@@ -5,7 +5,7 @@ import SessionHistogram from "../../components/stats/SessionHistogram"
 
 const Stats = () => {
     var [sessions, setSessions] = useState([])
-    const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
+    // const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     const id = '66218395053c6a12f1868516'
     const fetchStats = () => {
         fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
@@ -158,7 +158,7 @@ const Stats = () => {
         const averageSessionTime = totalSessionTime / sessions.length;
         
         // Return the average session time
-        return `${Math.floor(averageSessionTime/60)}hr${averageSessionTime%60}min`;
+        return `${Math.floor(averageSessionTime <= 60 ? 0 : averageSessionTime)}hr${(averageSessionTime%60).toFixed(0)}min`;
     };
     
     const avg_time = calculateAverageSessionTime()
@@ -209,29 +209,28 @@ const Stats = () => {
     };
 
     const { totalCompletedClimbs, totalFailedClimbs } = calculateTotalCompletedAndFailedClimbs()
-    const t = parseInt(avg_time).toPrecision(1)
+    const t = Math.floor(avg_time)
     
     const ProgressBar = () => {
-        const completionRate = calculateOverallCompletionRate();
-        const failedRate = 100 - completionRate;
-        const xWidth = `${completionRate}%`;
-        const yWidth = `${100 - completionRate}%`;
+        const completedP = Math.floor(100 * totalCompletedClimbs / (totalCompletedClimbs + totalFailedClimbs))
+        const failedP = Math.floor(100 * totalFailedClimbs / (totalCompletedClimbs + totalFailedClimbs))
+        
         return (
             <div className="font-semibold">
                 <div className="flex h-[35px] w-full">
                     <div 
                         className='bg-[#4cAf50]' 
                         style={
-                            { width: xWidth, borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px' }
+                            { width: `${completedP}%`, borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px' }
                         }>
-                            <h2 className="flex justify-center">{completionRate >= 25 ? completionRate : ''}%</h2>
+                            <h2 className="flex justify-center">{completedP >= 25 ? completedP : ''}%</h2>
                         </div>
                     <div 
                         className='bg-red-600' 
                         style={
-                            { width: yWidth, borderTopRightRadius: '10px', borderBottomRightRadius: '10px' }
+                            { width: `${failedP}%`, borderTopRightRadius: '10px', borderBottomRightRadius: '10px' }
                         }>
-                            <h2 className="flex justify-center">{failedRate >= 25 ? failedRate : ''}%</h2>
+                            <h2 className="flex justify-center">{failedP >= 25 ? failedP : ''}%</h2>
                     </div>
                 </div>
 
@@ -254,7 +253,7 @@ const Stats = () => {
                         <h3 className="mr-2 rounded-xl bg-[#2a313c] px-3 py-1">Completed: {totalCompletedClimbs}</h3>
                         <h3 className="rounded-xl bg-[#2a313c] px-3 py-1">Failed: {totalFailedClimbs}</h3>
                 </div>
-                <ProgressBar /> 
+                <ProgressBar completed={totalCompletedClimbs} failed={totalFailedClimbs} /> 
             </div>
 
             <div className="mb-8 bg-[#222831] rounded-lg p-2 text-center">
@@ -272,12 +271,12 @@ const Stats = () => {
             </div>
 
             <div className="mb-8 bg-[#222831] rounded-lg pt-2 pb-6 px-2 text-center">
-                <h1 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Session Time: {avg_time}</h1>
+                <h1 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Session Time: {parseInt(avg_time) < 60 ? `${parseInt(avg_time)}min` : `${Math.floor(parseInt(avg_time) / 60)}hr${Math.floor(parseInt(avg_time) % 60)}min` }</h1>
                 <SessionHistogram sessionTimes={sessions.map(session => session.stats.session_time)} averageSessionTime={t} />   
             </div>
             
             <div className="mb-8 bg-[#222831] rounded-lg p-2 text-center">
-                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Climbs Per Session: {climbsPerSession}</h2>
+                <h2 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Climbs Per Session: {climbsPerSession.toFixed(0)}</h2>
             </div>
         </div>
     );
