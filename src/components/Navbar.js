@@ -20,7 +20,7 @@ const Navbar = () => {
                 <Link to='/app/newSession'>
                     <FiPlusCircle
                         className="ml-12" 
-                        color={path === '/app/newsession' ? '#00adb5' : '#c6c6c6'}
+                        color={path === '/app/newSession' ? '#00adb5' : '#c6c6c6'}
                         size={20} />
                 </Link>
 
