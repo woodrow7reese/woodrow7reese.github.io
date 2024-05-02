@@ -4,6 +4,7 @@ import Chart from "chart.js/auto";
 const SessionHistogram = ({ sessionTimes, averageSessionTime }) => {
     const chartRef = useRef(null);
     const chartInstance = useRef(null);
+
     useEffect(() => {
         if (chartInstance.current) {
             chartInstance.current.destroy();
@@ -51,7 +52,7 @@ const SessionHistogram = ({ sessionTimes, averageSessionTime }) => {
                             borderColor: '#FF6384',
                             borderWidth: 2,
                             label: {
-                                content: `Average Session Time: ${averageSessionTime}`,
+                                // content: `Average Session Time: ${averageSessionTime}`,
                                 enabled: true,
                                 position: 'right',
                                 color: '#FF6384'
