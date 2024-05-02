@@ -9,7 +9,7 @@ import Login from './pages/Login'
 import History from "./pages/app/History"
 import NewSession from "./pages/app/NewSession"
 import Stats from './pages/app/Stats'
-// import Signup from "./pages/Signup"
+import Signup from "./pages/Signup"
 
 
 
@@ -31,6 +31,7 @@ function App() {
             <Route index path='/' element={<HomePage/>} />
             
             <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
 
             <Route path='/roadmap' element={<Roadmap/>} />
             <Route path='/app/demo' element={<Demo />} />

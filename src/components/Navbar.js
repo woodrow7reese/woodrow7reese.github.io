@@ -5,8 +5,8 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => { 
     const location = useLocation()
     const path = location.pathname 
-    const isRootPath = location.pathname === '/'
-    if (isRootPath) return null
+    const pathNames = ['/', '/login', '/signup']
+    if (pathNames.includes(path)) return null
     return (
        <nav className="z-50 flex justify-between start-[6%] bottom-[2%] fixed ml-2 px-4 py-3 w-[85%] bg-[#000000] rounded-xl">
                 

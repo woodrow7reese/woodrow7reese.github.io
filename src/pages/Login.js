@@ -5,8 +5,8 @@ import React from 'react';
 
 const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/login', {
-        method: 'POST',
+    fetch('http://localhost:3000/api/${}login', {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state)
     }).then(
@@ -23,9 +23,11 @@ const handleSubmit = (event) => {
 
 const Login = () => {
     return (
-        <div className="flex justify-center align-middle py-24 bg-inherit font-mono">
-            
-            <form method="post" className='mt-12 border-2 p-4 rounded-lg' onSubmit={handleSubmit}>
+        <div className="flex-col justify-center align-middle py-24 bg-inherit font-mono">
+            <div className='border-2 border-[#c6c6c6] rounded-lg text-2xl w-min px-3 py-1 font-semibold'>
+              Login
+            </div>
+            <form method="post" className='mt-4 border-2 border-[#c6c6c6] p-4 rounded-lg bg-[#2a313c]' onSubmit={handleSubmit}>
                 <div className="flex justify-center my-8">
                     <GiMountainClimbing 
                      size={80}

@@ -6,14 +6,14 @@ const HomePage = () => {
             <div className='flex-col font-mono font-extrabold'>
               <h1 className='text-6xl mt-4 mb-8'>Boulder Flash</h1>
               <div>
-                <h2 className='text-[#00adb5] text-md tracking-widest'>Rock Climbing App</h2>
+                <p className='text-[#00adb5] text-md tracking-widest'>Rock Climbing App</p>
                 <div className='text-5xl tracking-tight mb-4'>
                   <h1 className='mb-4'>Track Progress,</h1>
                   <h1 className='mb-4'>View Analytics,</h1>
                   <h1>Share With Friends</h1>
                 </div>
                 <p className='text-md font-semibold text-gray-400 text-start mb-6'>
-                  <Link to='/app/userhome' className='flex'>- Click <h2 className='mx-1 text-[#00adb5]'>here</h2> to access the app!</Link>
+                  <Link to='/app/userhome' className='flex'>- Click <h2 className='mx-1 text-[#00adb5] underline'>here</h2> to access the app!</Link>
                   - Optimized for mobile displays!
                   <br/>
                   - Mock data is pre-loaded
@@ -48,7 +48,7 @@ const HomePage = () => {
                 </Link>
 
                 <Link
-                  to="/app/userHome"
+                  to="/signup"
                   className='px-4 py-1 my-0 border-2 rounded-xl border-[#DA9D25]
                   bg-[#DA9D25] text-[#222831] hover:bg-white hover:text-[#222831'
                   >

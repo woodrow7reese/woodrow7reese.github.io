@@ -115,12 +115,12 @@ const EditSessionForm = ({session, onSave}) => {
     }
 
     return (
-        <div className="bg-inherit pb-12 text-[#c6c6c6] w-[90%] mx-6 -translate-x-1 mt-24 overflow-y-scroll h-[700px]">
+        <div className="bg-inherit pb-12 text-[#c6c6c6] w-[90%] mx-6 -translate-x-1 mt-6">
         
-        <div className="mt-12 font-mono bg-[#2a313c] rounded-lg pt-4 px-4">
+        <div className="font-mono bg-[#2a313c] rounded-lg pt-4 px-4">
             <h1 className="text-2xl tracking-wider font-semibold border-2 border-[#c6c6c6] text-[#c6c6c6] 
             rounded-lg w-min px-3 py-1 bg-inherit inline">
-                New Session
+                Edit Session
             </h1>
             <form onSubmit={handleSubmit} className="flex-col [&>*]:mb-4 mt-4">
                 <div className="rounded-lg px-4 py-2 bg-[#222831] mt-8">

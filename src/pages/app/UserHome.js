@@ -158,7 +158,7 @@ const UserHome = () => {
     const openEdit = (sessionId) => {
         setEditedSessionId(sessionId)
     }
-    const handleCloseEdit = () => {
+    const closeEdit = () => {
         setEditedSessionId(null)
     }
     const handleSaveSession = (editedSession) => {
@@ -171,7 +171,7 @@ const UserHome = () => {
             }
         })
         .then(() => {
-            handleCloseEdit()
+            closeEdit()
             // fetchUser()
         })
         .catch(error => console.error('error saving session edits', error))
@@ -281,14 +281,14 @@ const UserHome = () => {
                                 editedSessionId === session._id && (
                                     <>
                                         <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
-                                        <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-auto max-w-lg" open>
+                                        <dialog className="z-20 pt-0 bg-[#2a313c] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 overflow-auto max-w-lg" open>
                                             <button 
-                                                className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
-                                                onClick={handleCloseEdit}
+                                                className="text-[#c6c6c6] font-semibold hover:bg-opacity-30 w-min"
+                                                onClick={closeEdit}
                                             >
                                                 Close
                                             </button>
-                                            <div className="bg-black bg-opacity-50">
+                                            <div className="bg-[#222831] overflow-y-scroll h-[700px]">
                                                 <EditSessionForm 
                                                     session={session}
                                                     onSave={(editedSession) => handleSaveSession(editedSession)}

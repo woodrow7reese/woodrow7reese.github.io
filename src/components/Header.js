@@ -25,11 +25,15 @@ const Header = () => {
                         <li className="text-red-500 border-b-2 border-opacity-45 py-2">
                             <Link to='/roadmap'>ROADMAP</Link>
                         </li>
+                        <Link to='/login'>
+                            <li className="border-b-2 border-opacity-45 py-2">
+                                LOGIN
+                            </li>
+                        </Link>
+
+                        
                         <li className="border-b-2 border-opacity-45 py-2">
-                            LOGIN
-                        </li>
-                        <li className="border-b-2 border-opacity-45 py-2">
-                            SIGN UP
+                            -SIGN UP-
                         </li>
                     </ul>
                 </div>
