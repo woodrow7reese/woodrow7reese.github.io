@@ -184,5 +184,28 @@ router.post('/users/:userId/sessions/:sessionId/climbs', async (req, res) => {
         res.status(400).json({ message: 'Failed to add climb' })
     }
 })
+// router.post('/users/:userId/:sessionId/climbs', async (req, res) => {
+//     const userId = req.params.userId
+//     const sessionData = req.body
+
+//     console.log(req.body)
+
+//     try {
+
+//         console.log('in try block --- to add session')
+//         const user = await User.findById(userId)
+//         if (!user) {
+//             return res.status(404).json({ message: 'User not found' })
+//         }
+//         console.log('user found')
+
+//         user.sessions.push(sessionData)
+//         await user.save()
+//         console.log('session added')
+//         res.status(201).json({ message: 'Session added successfully', user })
+//     } catch (error) {
+//         res.status(400).json({ message: 'Failed to add session', error: error.message })
+//     }
+// })
 
 module.exports = router
