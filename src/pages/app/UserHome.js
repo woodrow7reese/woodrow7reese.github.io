@@ -15,7 +15,7 @@ const UserHome = () => {
 
     const [sessions, setSessions] = useState([]);
     const id = '66218395053c6a12f1868516';
-    const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
+    // const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     useEffect(() => {
         const fetchUser = () => {
             fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
@@ -256,8 +256,8 @@ const UserHome = () => {
                         </div>
 
                         <div className="flex justify-center font-semibold">
-                            <div className={`bg-[#222831] p-2 rounded-lg w-min ${percentageColor(session.stats.completion_rate)}`}>
-                                {session.stats.completion_rate}%
+                            <div className={`bg-[#222831] p-2 rounded-lg w-min ${percentageColor(100 * session.stats.num_completed / session.stats.total_climbs)}`}>
+                                {Math.floor(100 * session.stats.num_completed / session.stats.total_climbs)}%
                             </div>
                         </div>
 
@@ -284,7 +284,7 @@ const UserHome = () => {
                                         <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-auto max-w-lg" open>
                                             <button 
                                                 className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
-                                                onClick={closePopup}
+                                                onClick={handleCloseEdit}
                                             >
                                                 Close
                                             </button>
