@@ -10,13 +10,16 @@ import SessionCard from '../../components/session/SessionCard';
 import EditSessionForm from "../../components/session/EditSessionForm";
 
 
+
 const UserHome = () => {
+
     const [sessions, setSessions] = useState([]);
     const id = '66218395053c6a12f1868516';
-    
+    const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     useEffect(() => {
         const fetchUser = () => {
-            fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+            // fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+            fetch(`${url}/user/${id}/getSessions`, {
                 method: "GET"
             }).then(
                 (res) => res.json()
@@ -33,7 +36,8 @@ const UserHome = () => {
     }, []);
 
     const handleDeleteSession = (sessionId) => {
-        fetch(`http://localhost:5050/api/user/${id}/session/${sessionId}`, {
+        // fetch(`http://localhost:5050/api/user/${id}/session/${sessionId}`, {
+            fetch(`${url}/user/${id}/session/${sessionId}`, {
             method: 'DELETE'
         })
         .then(() => {
@@ -158,7 +162,8 @@ const UserHome = () => {
         setEditedSessionId(null)
     }
     const handleSaveSession = (editedSession) => {
-        fetch(`http://localhost:5050/api/user/${id}/session/${editedSessionId}`, {
+        // fetch(`http://localhost:5050/api/user/${id}/session/${editedSessionId}`, {
+        fetch(`${url}/user/${id}/session/${editedSessionId}`, {
             method: 'PATCH',
             body: JSON.stringify(editedSession),
             headers: {
@@ -167,7 +172,7 @@ const UserHome = () => {
         })
         .then(() => {
             handleCloseEdit()
-            // fetchUser
+            // fetchUser()
         })
         .catch(error => console.error('error saving session edits', error))
     }
@@ -189,21 +194,21 @@ const UserHome = () => {
 
                     <div className="ml-[20%]">
                         <div className="mt-4 mb-2 underline">
-                            <Link to='app/userhome' className="flex">
+                            <Link to='/app/newsession' className="flex">
                                 <FiPlusCircle size={25} className="mr-2 translate-y-1" />
                                 Create New Session
                             </Link>
                         </div>
                         
                         <div className="flex mb-2 underline -translate-x-1">
-                            <Link to='app/history' className="flex">
+                            <Link to='/app/history' className="flex">
                                 <MdHistory size={30} className="mr-2"/>
                                 View All Sessions
                             </Link>
                         </div>
 
                         <div className="flex underline">
-                            <Link to='app/stats' className="flex">
+                            <Link to='/app/stats' className="flex">
                                 <FaChartBar size={25} className="mr-2 translate-y-1"/>
                                 View Stats
                             </Link>
@@ -275,25 +280,25 @@ const UserHome = () => {
                             {
                                 editedSessionId === session._id && (
                                     <>
-                                    <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
-                                    <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" open>
-                                        <button 
-                                            className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
-                                            onClick={closePopup}
+                                        <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+                                        <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-auto max-w-lg" open>
+                                            <button 
+                                                className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
+                                                onClick={closePopup}
                                             >
                                                 Close
-                                        </button>
-                                    
-                                        <EditSessionForm 
-                                            sessionId={editedSessionId}
-                                            session={session}
-                                            userId={id}
-                                            onClose={handleCloseEdit}
-                                            onSave={handleSaveSession}
-                                        />
-
+                                            </button>
+                                            <div className="bg-black bg-opacity-50">
+                                                <EditSessionForm 
+                                                    session={session}
+                                                    onSave={(editedSession) => handleSaveSession(editedSession)}
+                                                />
+                                            </div>
                                         </dialog>
                                     </>
+
+                                    
+
                                     
                                 )
                             }
@@ -301,7 +306,7 @@ const UserHome = () => {
                             {selectedSessionId === session._id && (
                                 <>
                                     <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
-                                    <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" open>
+                                    <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-auto max-w-lg" open>
                                         <button 
                                             className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
                                             onClick={closePopup}

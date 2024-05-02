@@ -5,9 +5,11 @@ import SessionHistogram from "../../components/stats/SessionHistogram"
 
 const Stats = () => {
     var [sessions, setSessions] = useState([])
+    const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     const id = '66218395053c6a12f1868516'
     const fetchStats = () => {
-        fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+        // fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+            fetch(`${url}/user/${id}/getSessions`, {
             method: "GET"
         }).then(
             (res) => res.json()
@@ -207,13 +209,13 @@ const Stats = () => {
     };
 
     const { totalCompletedClimbs, totalFailedClimbs } = calculateTotalCompletedAndFailedClimbs()
+    const t = parseInt(avg_time).toPrecision(1)
     
     const ProgressBar = () => {
         const completionRate = calculateOverallCompletionRate();
         const failedRate = 100 - completionRate;
         const xWidth = `${completionRate}%`;
         const yWidth = `${100 - completionRate}%`;
-    
         return (
             <div className="font-semibold">
                 <div className="flex h-[35px] w-full">
@@ -271,7 +273,7 @@ const Stats = () => {
 
             <div className="mb-8 bg-[#222831] rounded-lg pt-2 pb-6 px-2 text-center">
                 <h1 className="text-xl my-4 font-semibold text-[#c6c6c6]">Average Session Time: {avg_time}</h1>
-                <SessionHistogram sessionTimes={sessions.map(session => session.stats.session_time)} averageSessionTime={avg_time} />   
+                <SessionHistogram sessionTimes={sessions.map(session => session.stats.session_time)} averageSessionTime={t} />   
             </div>
             
             <div className="mb-8 bg-[#222831] rounded-lg p-2 text-center">
