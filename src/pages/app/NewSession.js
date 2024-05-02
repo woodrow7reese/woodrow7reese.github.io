@@ -7,7 +7,7 @@ import GymRatingSelector from "../../components/assets/GymRatingSelector";
 import LinkUploader from "../../components/assets/LinkUploader";
 import { useNavigate } from "react-router-dom";
 const NewSession = () => {
-    const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
+    // const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     const [sessionData, setSessionData] = useState({
         title: "",
         date: "",
@@ -313,18 +313,18 @@ const NewSession = () => {
                                     src={up}
                                     alt="Yes"
                                     width={100}
-                                    onClick={() => handleCompleteClimb(index, true)}
+                                    onClick={() => handleCompleteClimb(index, false)}
                                     style={{cursor: 'pointer'}}
-                                    className={`${climb.completed ? 'bg-green-600 rounded-lg' : ''}`}
+                                    className={`${!climb.completed ? 'bg-green-600 rounded-lg' : ''}`}
                                     />
                                 
                                 <img
                                     src={down} 
                                     alt="No"
                                     width={100}
-                                    onClick={() => handleCompleteClimb(index, false)}
+                                    onClick={() => handleCompleteClimb(index, true)}
                                     style={{cursor: 'pointer'}}
-                                    className={`${climb.completed ? '' : 'bg-red-500 rounded-lg'}`}
+                                    className={`${!climb.completed ? '' : 'bg-red-500 rounded-lg'}`}
                                     />
                             </div>
                         </div>

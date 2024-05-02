@@ -4,6 +4,7 @@ const HomePage = () => {
     return (
         <div className='pb-[65px] scroll-mb-0 mt-12'>
             <div className='flex-col font-mono font-extrabold'>
+              <h1 className='text-6xl mt-4 mb-8'>Boulder Flash</h1>
               <div>
                 <h2 className='text-[#00adb5] text-md tracking-widest'>Rock Climbing App</h2>
                 <div className='text-5xl tracking-tight mb-4'>
@@ -47,7 +48,7 @@ const HomePage = () => {
                 </Link>
 
                 <Link
-                  to="/signup"
+                  to="/app/userHome"
                   className='px-4 py-1 my-0 border-2 rounded-xl border-[#DA9D25]
                   bg-[#DA9D25] text-[#222831] hover:bg-white hover:text-[#222831'
                   >
