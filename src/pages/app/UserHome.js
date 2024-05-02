@@ -18,8 +18,8 @@ const UserHome = () => {
     const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     useEffect(() => {
         const fetchUser = () => {
-            // fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
-            fetch(`${url}/user/${id}/getSessions`, {
+            fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+            // fetch(`${url}/user/${id}/getSessions`, {
                 method: "GET"
             }).then(
                 (res) => res.json()
@@ -36,8 +36,8 @@ const UserHome = () => {
     }, []);
 
     const handleDeleteSession = (sessionId) => {
-        // fetch(`http://localhost:5050/api/user/${id}/session/${sessionId}`, {
-            fetch(`${url}/user/${id}/session/${sessionId}`, {
+        fetch(`http://localhost:5050/api/user/${id}/session/${sessionId}`, {
+            // fetch(`${url}/user/${id}/session/${sessionId}`, {
             method: 'DELETE'
         })
         .then(() => {
@@ -162,8 +162,8 @@ const UserHome = () => {
         setEditedSessionId(null)
     }
     const handleSaveSession = (editedSession) => {
-        // fetch(`http://localhost:5050/api/user/${id}/session/${editedSessionId}`, {
-        fetch(`${url}/user/${id}/session/${editedSessionId}`, {
+        fetch(`http://localhost:5050/api/user/${id}/session/${editedSessionId}`, {
+        // fetch(`${url}/user/${id}/session/${editedSessionId}`, {
             method: 'PATCH',
             body: JSON.stringify(editedSession),
             headers: {
