@@ -7,6 +7,7 @@ import { MdHistory } from "react-icons/md";
 import climb from './../../photos/sessionStats/climb.svg';
 import SessionStats from '../../components/session/SessionStats';
 import SessionCard from '../../components/session/SessionCard';
+import EditSessionForm from "../../components/session/EditSessionForm";
 
 
 const UserHome = () => {
@@ -70,7 +71,6 @@ const UserHome = () => {
         setSelectedSessionId(null);
     };
 
-    
     const [toggle, setToggle] = useState(false)
     const handleToggle = () => {
         setToggle(!toggle)
@@ -125,7 +125,7 @@ const UserHome = () => {
                                     <div>Date</div>
                                     (New to Old)
                                 </li>
-
+ 
                                 <li
                                     onClick={() => handleFilterChange("bestClimb")}>
                                     Best Climb
@@ -149,7 +149,28 @@ const UserHome = () => {
         )
 
     }
-
+    
+    const [editedSessionId, setEditedSessionId] = useState(null)
+    const openEdit = (sessionId) => {
+        setEditedSessionId(sessionId)
+    }
+    const handleCloseEdit = () => {
+        setEditedSessionId(null)
+    }
+    const handleSaveSession = (editedSession) => {
+        fetch(`http://localhost:5050/api/user/${id}/session/${editedSessionId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(editedSession),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(() => {
+            handleCloseEdit()
+            // fetchUser
+        })
+        .catch(error => console.error('error saving session edits', error))
+    }
 
     return (
 
@@ -236,17 +257,46 @@ const UserHome = () => {
                         </div>
 
                         <div className="w-min">
-                            <div className="">
+                            <div className="ml-4 mt-6">
                                 <button onClick={() => openPopup(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
                                     hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
                                     >View
                                 </button>
-
+                                <button onClick={() => openEdit(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
+                                    hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
+                                    >Edit
+                                </button>
                                 <button onClick={() => handleDeleteSession(session._id)} className="inline text-center min-w-max mt-4 px-3 py-1 rounded-lg bg-[#222831] border-2 
                                     hover:bg-[#c6c6c6] hover:text-[#222831] hover:border-[#222831]"
                                     >Delete
                                 </button>
                             </div>
+
+                            {
+                                editedSessionId === session._id && (
+                                    <>
+                                    <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+                                    <dialog className="z-20 bg-[#222831] rounded-xl pb-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" open>
+                                        <button 
+                                            className="px-3 py-1 text-[#c6c6c6] font-semibold hover:bg-opacity-30"
+                                            onClick={closePopup}
+                                            >
+                                                Close
+                                        </button>
+                                    
+                                        <EditSessionForm 
+                                            sessionId={editedSessionId}
+                                            session={session}
+                                            userId={id}
+                                            onClose={handleCloseEdit}
+                                            onSave={handleSaveSession}
+                                        />
+
+                                        </dialog>
+                                    </>
+                                    
+                                )
+                            }
 
                             {selectedSessionId === session._id && (
                                 <>
@@ -259,7 +309,7 @@ const UserHome = () => {
                                                 Close
                                         </button>
 
-                                        <div key={session._id} className="overflow-y-scroll h-[650px]" >
+                                        <div key={session._id} className="overflow-y-scroll h-[700px]" >
                                             <SessionStats 
                                                 title={session.title}
                                                 session_time={session.stats.session_time}
