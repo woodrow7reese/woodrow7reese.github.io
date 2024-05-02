@@ -179,8 +179,8 @@ const NewSession = () => {
             }
         }
         try {
-            // await fetch(`http://localhost:5050/api/user/${id}/newSession`, {
-                await fetch(`${url}/user/${id}/newSession`, {
+            await fetch(`http://localhost:5050/api/user/${id}/newSession`, {
+                // await fetch(`${url}/user/${id}/newSession`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -327,6 +327,17 @@ const NewSession = () => {
                                     className={`${climb.completed ? '' : 'bg-red-500 rounded-lg'}`}
                                     />
                             </div>
+                        </div>
+
+                        <div className="mb-12 bg-[#2a313c] rounded-lg pt-5 mx-1 pb-6">
+                            <div className="ml-2 font-semibold mb-3 text-lg text-[#c6c6c6]">Style</div>
+                            <textarea
+                                className="bg-inherit w-full h-24 px-3 py-2"
+                                placeholder="..."
+                                name="style"
+                                value={climb.style}
+                                onChange={(e) => handleClimbInputChange(index, e)}
+                            />
                         </div>
 
                         <div className="mb-12 bg-[#2a313c] rounded-lg pt-5 mx-1 pb-6">

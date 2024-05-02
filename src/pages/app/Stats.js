@@ -8,8 +8,8 @@ const Stats = () => {
     const url = 'https://cs615-eaa412a1261d.herokuapp.com/api'
     const id = '66218395053c6a12f1868516'
     const fetchStats = () => {
-        // fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
-            fetch(`${url}/user/${id}/getSessions`, {
+        fetch(`http://localhost:5050/api/user/${id}/getsessions`,  {
+            // fetch(`${url}/user/${id}/getSessions`, {
             method: "GET"
         }).then(
             (res) => res.json()
