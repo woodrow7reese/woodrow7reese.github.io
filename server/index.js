@@ -27,7 +27,7 @@ app.use(cors())
 app.use('/api', routes)
 app.use('/api', user)
 // app.use('/api', seed)
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Listening on port ${port}`)
 })
 
