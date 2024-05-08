@@ -1,54 +1,14 @@
 https://cs615-eaa412a1261d.herokuapp.com/
 
+## Clone the Repo (Steps below)
+### Run the front end:
+1. Open a shell and go to root directory
+2. Enter the following command "npm run start"
+### Run the backend:
+1. Open another shell and go to ./server directory
+2. Enter the following command "npm run start" 
 
 
-# Proposal
-
-<div className="flex-col m-12">
-      <div className="mb-12 font-semibold">
-        <h2>Woodrow Reese</h2>
-        <h2>CS615 - UI Design</h2>
-      </div>
-
-      <div className="flex-col">
-        <h2 className="font-bold">
-          Proposal:
-        </h2>
-        
-        <div className="mx-12">
-          <p>
-            Alice is new to rock climbing and wants to document her progress.
-            For each climb, she documents the following:
-          </p>
-            <ol className="ml-12 my-4 list-decimal">
-              <li>
-                The professional rated difficulty of the climb (V0-V10)
-              </li>
-           
-              <li>
-                Her personal rating of the difficulty of the climb
-              </li>
-            
-              <li>
-                Her strategy and thoughts about the climb
-              </li>
-            
-              <li>
-                Whether she completed or failed the climb
-              </li>
-            </ol>
-          
-          Alice also records her climbs on her phone along with her session time
-          <br/>
-          The redundance of searching through her notes and matching it with the video in her camera roll is
-          discouraging her from documenting her progress.
-          She wants a way to do all of these things on her phone, and in one place. 
-          A mobile app that allows you to journal your progress with the listed features above could fix this. We can organize the data by session. An obstacle would be to make the application engaging to the user so they will continue using it. 
-
-             
-        </div>
-      </div>
-    </div>
 
 
 # Getting Started with Create React App
